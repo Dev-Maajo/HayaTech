@@ -1,0 +1,471 @@
+/* --------------------------------------------- */
+/*      HAYATECH — PREMIUM UI (Refined v2)       */
+/* --------------------------------------------- */
+
+/* ---------- ROOT THEME ---------- */
+:root {
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --text: #0f172a;
+    --muted: #64748b;
+
+    --accent: #2563eb;
+    --accent-600: #1d4ed8;
+    --accent-light: #dbeafe;
+
+    --radius: 14px;
+    --radius-sm: 10px;
+    --radius-lg: 22px;
+
+    --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.10);
+
+    --max-width: 1200px;
+    --container-pad: 24px;
+
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+}
+
+
+
+/* ---------- GLOBAL ---------- */
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+}
+
+.center {
+    text-align: center;
+}
+
+
+
+/* --------------------------------------------- */
+/*                 GLASS NAVBAR                  */
+/* --------------------------------------------- */
+.glass-nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.75);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+}
+
+.brand-text {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--muted);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    transition: all .25s ease;
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    color: var(--accent);
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle span {
+    background: var(--text);
+}
+
+
+
+/* --------------------------------------------- */
+/*                    HERO                        */
+/* --------------------------------------------- */
+.hero {
+    padding: 80px 0;
+}
+
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-copy {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.15;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 17px;
+    margin-bottom: 24px;
+    max-width: 540px;
+}
+
+.hero-img-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-img-card img {
+    max-width: 420px;
+    width: 100%;
+    border-radius: var(--radius-sm);
+}
+
+
+
+/* --------------------------------------------- */
+/*                  BUTTONS                       */
+/* --------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .25s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(37, 99, 235, 0.30);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-ghost {
+    color: var(--muted);
+}
+
+
+
+/* --------------------------------------------- */
+/*                   SECTIONS                     */
+/* --------------------------------------------- */
+.section {
+    padding: 70px 0;
+}
+
+.section.alt {
+    background: var(--bg-alt);
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.section-sub {
+    color: var(--muted);
+    margin-bottom: 26px;
+}
+
+
+
+/* --------------------------------------------- */
+/*               PRODUCT GRID                     */
+/* --------------------------------------------- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 18px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transition: all .25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.product-thumb {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+
+
+/* --------------------------------------------- */
+/*              SERVICES GRID                     */
+/* --------------------------------------------- */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.service-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: var(--radius);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all .25s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.service-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+
+
+/* --------------------------------------------- */
+/*                PORTFOLIO (No Crop)             */
+/* --------------------------------------------- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.portfolio-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: all .25s ease;
+    overflow: hidden;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.portfolio-media {
+    background: var(--bg-alt);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-media img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+}
+
+.portfolio-body {
+    padding: 18px;
+}
+
+.portfolio-tags span {
+    font-size: 12px;
+    background: var(--accent-light);
+    color: var(--accent-600);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    margin-right: 6px;
+}
+
+
+
+/* --------------------------------------------- */
+/*                    ABOUT                       */
+/* --------------------------------------------- */
+.about-flex {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-box {
+    background: #fff;
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+
+
+/* --------------------------------------------- */
+/*                 CONTACT FORM                   */
+/* --------------------------------------------- */
+.contact-form {
+    display: grid;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 15px;
+}
+
+
+
+/* --------------------------------------------- */
+/*                    FOOTER                      */
+/* --------------------------------------------- */
+.footer {
+    background: #fff;
+    padding: 28px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+/* --------------------------------------------- */
+/*                  ANIMATIONS                    */
+/* --------------------------------------------- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s forwards;
+}
+
+.fade-up-delayed {
+    opacity: 0;
+    transform: translateY(26px);
+    animation: fadeUp 0.9s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* --------------------------------------------- */
+/*                 RESPONSIVE                     */
+/* --------------------------------------------- */
+@media(max-width: 900px) {
+    .hero-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: 0;
+        top: 70px;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        background: #fff;
+        width: 260px;
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thank You — HayaTech</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/logo.png" />
+</head>
+
+<body>
+
+    <section class="section" style="min-height: 70vh; display: flex; justify-content: center; align-items: center;">
+        <div class="container center fade-up">
+
+            <img src="assets/logo.png" alt="HayaTech" style="
+                width: 80px; 
+                height: 80px;
+                border-radius: 14px;
+                margin-bottom: 16px;
+            ">
+
+            <h1 style="font-size: 34px; font-weight: 800; margin-bottom: 12px;">
+                Thank you! 🎉
+            </h1>
+
+            <p style="color: var(--muted); max-width: 520px; margin: 0 auto 26px;">
+                Your message has been received successfully. I’ll get back to you as soon as possible, InshaAllah.
+                <br><br>
+                Meanwhile, feel free to explore more automation products or connect on WhatsApp.
+            </p>
+
+            <div style="display: flex; gap: 14px; justify-content: center; margin-top: 20px;">
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+
+                <a href="https://wa.me/918828278210" target="_blank" class="btn btn-primary">
+                    Chat on WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>© <span id="year"></span> HayaTech — Built with purpose.</div>
+            <div class="footer-links">
+                <a href="index.html#privacy">Privacy</a>
+                <a href="index.html#terms">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // simple year update
+        document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
