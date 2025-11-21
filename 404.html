@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>404 — Page not found · HayaTech</title>
+    <meta name="description"
+        content="Page not found — HayaTech. The page you're looking for doesn't exist or has been moved." />
+    <!-- If your main css is in repo root -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Minimal 404-specific styles to ensure it looks good even if main CSS missing */
+        :root {
+            --bg: #ffffff;
+            --muted: #6b7280;
+            --accent: #2563eb;
+            --card: #f8fafc;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+            background: var(--bg);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+        }
+
+        .card-404 {
+            max-width: 920px;
+            width: 100%;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(2, 6, 23, 0.06);
+            padding: 48px;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .left {
+            flex: 1;
+            min-width: 260px
+        }
+
+        .right {
+            flex: 1;
+            min-width: 260px
+        }
+
+        h1 {
+            font-size: 56px;
+            margin: 0 0 6px;
+            line-height: 1;
+            color: #0b1220
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 18px;
+            font-size: 16px
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid transparent
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid rgba(15, 23, 42, 0.06)
+        }
+
+        .meta {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .search-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px
+        }
+
+        .search-row input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(15, 23, 42, 0.06)
+        }
+
+        .clock {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        @media(max-width:900px) {
+            .card-404 {
+                flex-direction: column;
+                padding: 28px
+            }
+
+            h1 {
+                font-size: 34px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap">
+        <section class="card-404">
+            <div class="left">
+                <h1>404 — Page not found</h1>
+                <p class="lead">Oops — the page you're looking for doesn't exist or has been moved. Let's get you back
+                    on track.</p>
+
+                <div class="buttons">
+                    <!-- Use relative root path to index.html on your site -->
+                    <a class="btn btn-primary" id="homeBtn" href="/mnt/data/index.html">Back to home</a>
+                    <a class="btn btn-ghost" href="https://hayatech.dev/">Visit HayaTech</a>
+                </div>
+
+                <div class="meta">
+                    <div>Auto-redirecting to home in <span id="countdown">8</span> seconds — <a href="#"
+                            id="cancelRedirect">Cancel</a></div>
+                </div>
+
+                <div class="search-row" aria-hidden="false">
+                    <input type="search" id="siteSearch" placeholder="Search the site (search uses Google)" />
+                    <a class="btn btn-ghost" id="searchBtn" href="#" style="align-self:center;">Search</a>
+                </div>
+            </div>
+
+            <div class="right" aria-hidden="true">
+                <!-- Large decorative image — keep this optional or point to assets/product1.png -->
+                <img src="assets/product1.png" alt="Gmail Automation preview"
+                    style="width:100%;border-radius:12px;object-fit:cover;box-shadow:0 8px 30px rgba(2,6,23,0.06)" />
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Auto redirect with simple countdown (can be cancelled)
+        (function () {
+            var seconds = 8;
+            var countdownEl = document.getElementById('countdown');
+            var timer = setInterval(function () {
+                seconds--;
+                if (countdownEl) countdownEl.innerText = Math.max(seconds, 0);
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    // go home — use site root or index path
+                    window.location.href = '/';
+                }
+            }, 1000);
+
+            var cancel = document.getElementById('cancelRedirect');
+            if (cancel) {
+                cancel.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    clearInterval(timer);
+                    countdownEl.innerText = 'stopped';
+                    cancel.style.display = 'none';
+                });
+            }
+
+            // Search button: opens google site: search
+            var searchBtn = document.getElementById('searchBtn');
+            var searchInput = document.getElementById('siteSearch');
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var q = encodeURIComponent(searchInput.value.trim());
+                    if (!q) return;
+                    // use Google site search
+                    var url = 'https://www.google.com/search?q=site:hayatech.dev+' + q;
+                    window.open(url, '_blank');
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
