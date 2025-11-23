@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://hayatech.dev/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Hire Me -->
+    <url>
+        <loc>https://hayatech.dev/hire-me/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://hayatech.dev/privacy/</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Terms of Service -->
+    <url>
+        <loc>https://hayatech.dev/terms/</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Thank You Page -->
+    <url>
+        <loc>https://hayatech.dev/thank-you.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 404 (optional but clean) -->
+    <url>
+        <loc>https://hayatech.dev/404.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
+    </url>
+
+</urlset>
