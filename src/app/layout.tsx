@@ -1,101 +1,85 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 import Script from "next/script";
+import "./globals.css";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hayatech.dev"),
-
-  title: "HayaTech – AI Automation Systems",
-
+  title: {
+    default: "HayaTech | AI Automation Systems",
+    template: "%s | HayaTech",
+  },
   description:
-    "HayaTech builds AI automation systems including n8n workflows, AI agents, WhatsApp bots, and business automation solutions that help companies save time and scale operations.",
-
+    "Custom AI agents, n8n workflows, WhatsApp automation, ecommerce systems, and business integrations built around the way your team actually works.",
+  keywords: [
+    "AI automation",
+    "n8n automation",
+    "custom AI agents",
+    "WhatsApp automation",
+    "business workflow automation",
+    "Shopify automation",
+  ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "HayaTech – AI Automation Systems",
+    title: "HayaTech | AI Automation Systems",
     description:
-      "Custom AI automation systems including n8n workflows, AI agents, and WhatsApp bots.",
+      "If a business process repeats, HayaTech can design a reliable system to automate it.",
     url: "https://hayatech.dev",
     siteName: "HayaTech",
     type: "website",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "HayaTech AI Automation Systems",
+        url: "/whatsapp-bot.png",
+        width: 1280,
+        height: 720,
+        alt: "HayaTech automation workflow",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "HayaTech | AI Automation Systems",
+    description:
+      "Custom automation systems that connect your apps, data, AI, and team.",
+    images: ["/whatsapp-bot.png"],
+  },
+};
 
-  icons: {
-    icon: [
-      "/favicon.ico",
-      {
-        url: "/favicon-32x32.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        url: "/favicon-16x16.png",
-        sizes: "16x16",
-        type: "image/png",
-      },
-      {
-        url: "/favicon-96x96.png",
-        sizes: "96x96",
-        type: "image/png",
-      },
-    ],
-    apple: [
-      {
-        url: "/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "HayaTech",
+  url: "https://hayatech.dev",
+  description:
+    "Custom AI automation, n8n workflow, WhatsApp bot, and business integration services.",
+  founder: {
+    "@type": "Person",
+    name: "Maaz Shaikh",
   },
-
-  other: {
-    "google-adsense-account": "ca-pub-4891710027513778",
+  areaServed: "Worldwide",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Mumbai",
+    addressCountry: "IN",
   },
+  email: "skmaaz8828@gmail.com",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4891710027513778"
-          crossOrigin="anonymous"
-          strategy="beforeInteractive"
-        />
-      </head>
-
-      <body
-        className={`${inter.className} bg-gray-950 text-white min-h-screen flex flex-col`}
-      >
-        {/* Google Analytics */}
+      <body className="min-h-screen">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EW2BT26CPP"
           strategy="afterInteractive"
         />
-
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -104,13 +88,15 @@ export default function RootLayout({
             gtag('config', 'G-EW2BT26CPP');
           `}
         </Script>
+        <Script
+          id="hayatech-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
 
         <Navbar />
-
-        <main className="pt-20 flex-grow">{children}</main>
-
+        <div className="pt-[72px]">{children}</div>
         <Footer />
-
         <FloatingWhatsApp />
       </body>
     </html>

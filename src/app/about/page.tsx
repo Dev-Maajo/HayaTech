@@ -1,147 +1,162 @@
-// src/app/about/page.tsx
+import type { Metadata } from "next";
+import { ArrowUpRight, CheckCircle2, Eye, HeartHandshake, ShieldCheck, Workflow } from "lucide-react";
 import Image from "next/image";
 
+import ContactBand from "@/components/ContactBand";
+import PageHero from "@/components/PageHero";
+import SectionHeading from "@/components/SectionHeading";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Meet Maaz Shaikh and learn how HayaTech approaches custom AI automation with practical architecture, clear guardrails, and direct builder support.",
+  alternates: { canonical: "/about" },
+};
+
+const principles = [
+  {
+    icon: Eye,
+    title: "Clear by design",
+    text: "You should understand what triggers the system, what it does, where the data goes, and when a person is involved.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Reliable before impressive",
+    text: "Validation, error paths, fallbacks, and monitoring matter more than a flashy demo that only works once.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Built with you",
+    text: "The workflow is shaped around your team and constraints—not forced into a generic automation package.",
+  },
+];
+
 export default function AboutPage() {
-    return (
-        <main className="min-h-screen bg-gray-950 text-white pt-20 pb-20">
-            <div className="max-w-6xl mx-auto px-6">
+  return (
+    <main>
+      <PageHero
+        eyebrow="About HayaTech"
+        title="Practical automation, built by the person you speak with."
+        description="HayaTech is a founder-led automation practice focused on turning repetitive work into reliable systems that teams can actually understand and use."
+      />
 
-                {/* Hero */}
-                <section className="py-16 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                        About <span className="text-cyan-500">HayaTech</span>
-                    </h1>
-
-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                        HayaTech builds AI automation systems that help businesses save time,
-                        reduce repetitive work, and operate more efficiently using modern tools
-                        like AI agents, workflow automation, and smart integrations.
-                    </p>
-                </section>
-
-
-                {/* Founder Section */}
-                <section className="py-12 flex flex-col md:flex-row items-center md:items-start gap-12">
-
-                    {/* Photo */}
-                    <div className="flex flex-col items-center shrink-0">
-                        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-cyan-400 shadow-lg shadow-cyan-500/20">
-                            <Image
-                                src="/maaz-founder.png"
-                                alt="Maaz Shaikh – Founder of HayaTech"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        <p className="text-sm text-gray-500 mt-3 text-center">
-                            Founder – HayaTech AI Automation
-                        </p>
-                    </div>
-
-
-                    {/* Bio */}
-                    <div className="text-center md:text-left max-w-2xl">
-
-                        <h2 className="text-3xl font-bold mb-6 text-cyan-400">
-                            Hi, I&apos;m Maaz
-                        </h2>
-
-                        <p className="text-lg text-gray-300 mb-6">
-                            I&apos;m an AI Automation Architect based in Mumbai. I design automation
-                            systems that help businesses eliminate repetitive work and operate
-                            more efficiently using tools like AI agents, workflow automation,
-                            and smart integrations.
-                        </p>
-
-                        <p className="text-gray-400 mb-6">
-                            My interest in technology started early with coding and problem
-                            solving. When I discovered automation tools like n8n, I began
-                            building real-world solutions to automate everyday processes —
-                            including email workflows, invoice handling, lead capture,
-                            WhatsApp automation, and AI-powered assistants.
-                        </p>
-
-                        <p className="text-gray-400 mb-6">
-                            I started HayaTech with a simple philosophy: build automation
-                            systems that provide genuine value to businesses. No black-hat
-                            tactics, no shortcuts — just reliable and ethical technology
-                            solutions that make work easier.
-                        </p>
-
-                        <p className="text-gray-400 mb-6">
-                            Today I work with freelancers and small businesses to build custom
-                            automation systems that save time and simplify operations. The
-                            mission is simple: automate repetitive work so businesses can
-                            focus on growth, creativity, and the things that truly matter.
-                        </p>
-
-
-                        {/* CTA */}
-                        <a
-                            href="https://wa.me/918828278210?text=Hi%20Maaz,%20I%20saw%20your%20HayaTech%20website%20and%20I'd%20like%20to%20discuss%20automation%20for%20my%20business."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-cyan-600 hover:bg-cyan-500 text-white px-10 py-5 rounded-lg font-bold text-lg transition-all hover:scale-105 shadow-lg inline-block w-full md:w-auto mt-6"
-                        >
-                            Book a Free Automation Consultation
-                        </a>
-
-                    </div>
-
-                </section>
-
-
-
-                {/* Values */}
-                <section className="py-12">
-
-                    <h2 className="text-3xl font-bold text-center mb-10 text-white">
-                        Core Principles
-                    </h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                        <div className="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-cyan-500 transition-all">
-                            <h3 className="text-2xl font-semibold text-emerald-400 mb-4">
-                                Ethical & Honest
-                            </h3>
-
-                            <p className="text-gray-300">
-                                Every automation system is built with transparency,
-                                integrity, and long-term reliability in mind.
-                            </p>
-                        </div>
-
-
-                        <div className="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-cyan-500 transition-all">
-                            <h3 className="text-2xl font-semibold text-emerald-400 mb-4">
-                                Production-Ready Systems
-                            </h3>
-
-                            <p className="text-gray-300">
-                                Workflows are tested, optimized, and built with proper
-                                error handling so they can run reliably in real businesses.
-                            </p>
-                        </div>
-
-
-                        <div className="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-cyan-500 transition-all">
-                            <h3 className="text-2xl font-semibold text-emerald-400 mb-4">
-                                Direct Founder Support
-                            </h3>
-
-                            <p className="text-gray-300">
-                                Every client works directly with the builder of the system.
-                                No outsourcing — clear communication and personal support.
-                            </p>
-                        </div>
-
-                    </div>
-
-                </section>
-
+      <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+        <div className="section-shell grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+          <div className="relative mx-auto w-full max-w-[430px]">
+            <div className="absolute -inset-4 -z-10 rotate-2 rounded-[2rem] bg-[#dff7eb]" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.8rem] bg-[#223043] shadow-2xl shadow-slate-900/15">
+              <Image
+                src="/maaz-founder.png"
+                alt="Maaz Shaikh, founder and automation architect at HayaTech"
+                fill
+                sizes="(min-width: 1024px) 430px, 90vw"
+                className="object-cover"
+                priority
+              />
             </div>
-        </main>
-    );
+            <div className="absolute -bottom-5 -right-2 rounded-2xl border border-[#d4e1d8] bg-white p-4 shadow-xl sm:right-[-1.5rem]">
+              <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#788981]">
+                Based in
+              </p>
+              <p className="mt-1 font-black text-[#10211b]">Mumbai · Working worldwide</p>
+            </div>
+          </div>
+
+          <div>
+            <p className="eyebrow">Hi, I&apos;m Maaz</p>
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.045em] text-[#10211b] sm:text-5xl">
+              I build the systems that make repetitive work disappear.
+            </h2>
+            <div className="mt-6 space-y-5 leading-8 text-[#52635c]">
+              <p>
+                My work sits between business operations and technology. I study how
+                information enters a business, how decisions are made, where people
+                lose time, and how the tools should work together.
+              </p>
+              <p>
+                HayaTech started from a simple belief: automation should solve a real
+                operational problem. That can mean an AI agent qualifying leads, a
+                workflow processing invoices, a WhatsApp system handling bookings,
+                or a custom integration connecting tools that were never designed to
+                talk to each other.
+              </p>
+              <p>
+                I work directly on the discovery, architecture, build, testing, and
+                handover. The result is not a black box—it is a system with clear
+                logic, defined guardrails, and a human path for the cases that need
+                judgment.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                "Direct founder communication",
+                "Business-first workflow mapping",
+                "Human approvals where needed",
+                "Documented, maintainable delivery",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 rounded-xl bg-[#f2f7f4] px-4 py-3 text-sm font-bold text-[#33473f]"
+                >
+                  <CheckCircle2 size={18} className="text-[#0b9d72]" aria-hidden="true" />
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="https://wa.me/918828278210?text=Hi%20Maaz,%20I%20want%20to%20discuss%20an%20automation%20idea."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-[#10211b] px-6 py-3.5 font-extrabold text-white hover:-translate-y-0.5 hover:bg-[#18332a]"
+            >
+              Tell me what you want to automate
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f4f7f2] px-4 py-20 sm:px-6 sm:py-24">
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow="Working principles"
+            title="Good automation is calm, transparent, and useful."
+            description="These principles shape every system, whether it is one workflow or a connected automation layer."
+            align="center"
+          />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {principles.map(({ icon: Icon, title, text }) => (
+              <article key={title} className="rounded-2xl border border-[#dbe4de] bg-white p-7">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#e4f7ee] text-[#087f5b]">
+                  <Icon size={22} aria-hidden="true" />
+                </span>
+                <h3 className="mt-5 text-xl font-black text-[#10211b]">{title}</h3>
+                <p className="mt-3 leading-7 text-[#607169]">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#101b2b] px-4 py-20 text-white sm:px-6 sm:py-24">
+        <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <Workflow size={28} className="text-emerald-300" aria-hidden="true" />
+            <h2 className="mt-5 text-3xl font-black tracking-[-0.045em] sm:text-4xl">
+              Start with the process you wish your team never had to repeat.
+            </h2>
+          </div>
+          <p className="text-lg leading-8 text-slate-300">
+            You do not need a technical specification. Explain what happens today,
+            where it slows down, and what the ideal outcome looks like. I&apos;ll turn
+            that into an automation plan you can evaluate clearly.
+          </p>
+        </div>
+      </section>
+
+      <ContactBand />
+    </main>
+  );
 }

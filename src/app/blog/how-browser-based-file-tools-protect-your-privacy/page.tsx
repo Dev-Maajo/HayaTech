@@ -1,274 +1,347 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  FileDown,
+  FileUp,
+  HardDrive,
+  LockKeyhole,
+  Server,
+  ShieldCheck,
+} from "lucide-react";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, LockKeyhole } from "lucide-react";
 
-const canonicalPath = "/blog/how-browser-based-file-tools-protect-your-privacy";
+import ContactBand from "@/components/ContactBand";
 
 export const metadata: Metadata = {
-  title: "How Browser-Based File Tools Protect Your Privacy | HayaTech",
+  title: "How Browser-Based File Tools Protect Your Privacy",
   description:
-    "Understand local browser file processing, how it differs from cloud uploads, its privacy benefits, limitations, and what to check before using an online file tool.",
-  alternates: { canonical: canonicalPath },
+    "Learn how local browser processing handles files, how it differs from server uploads, and what to check before using an online file utility.",
+  alternates: {
+    canonical: "/blog/how-browser-based-file-tools-protect-your-privacy",
+  },
   openGraph: {
     title: "How Browser-Based File Tools Protect Your Privacy",
     description:
-      "A practical guide to local file processing, cloud uploads, browser security, and choosing privacy-conscious online tools.",
-    url: canonicalPath,
+      "A plain-English guide to local file processing, server uploads, metadata, and privacy-aware browser tools.",
+    url: "/blog/how-browser-based-file-tools-protect-your-privacy",
     type: "article",
-    publishedTime: "2026-07-21T00:00:00+05:30",
-    authors: ["HayaTech"],
   },
 };
 
-const articleJsonLd = {
+const articleData = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: "How Browser-Based File Tools Protect Your Privacy",
-  description:
-    "A practical guide to local file processing, cloud uploads, browser security, and choosing privacy-conscious online tools.",
   datePublished: "2026-07-21",
-  dateModified: "2026-07-21",
-  author: { "@type": "Organization", name: "HayaTech", url: "https://hayatech.dev" },
-  publisher: { "@type": "Organization", name: "HayaTech", url: "https://hayatech.dev" },
-  mainEntityOfPage: `https://hayatech.dev${canonicalPath}`,
+  dateModified: "2026-07-26",
+  author: {
+    "@type": "Person",
+    name: "Maaz Shaikh",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "HayaTech",
+  },
+  mainEntityOfPage:
+    "https://hayatech.dev/blog/how-browser-based-file-tools-protect-your-privacy",
 };
 
-export default function ArticlePage() {
+const checks = [
+  "Does the page clearly explain whether file contents leave the device?",
+  "Can the tool complete the task without an account?",
+  "Does it describe file retention when a server upload is required?",
+  "Is the privacy statement specific about the tool—not only the website?",
+  "Does the tool request only the permissions and data needed for the task?",
+  "Can you avoid using sensitive files when the architecture is unclear?",
+];
+
+export default function BrowserPrivacyArticle() {
   return (
-    <main className="min-h-screen w-full max-w-full overflow-x-clip bg-gray-950 text-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c") }} />
+    <main>
+      <Script
+        id="article-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleData) }}
+      />
 
-      <article>
-        <header className="border-b border-gray-800 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.14),transparent_48%)]">
-          <div className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6 sm:py-16 md:py-24">
-            <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300">
-              <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to blog
-            </Link>
-            <div className="mt-10 flex flex-wrap items-center gap-3 text-sm">
-              <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-emerald-300">Privacy</span>
-              <span className="text-gray-400">July 21, 2026</span>
-              <span className="text-gray-600">•</span>
-              <span className="text-gray-400">8 min read</span>
-            </div>
-            <h1 className="mt-6 break-words text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-6xl">
-              How Browser-Based File Tools Protect Your Privacy
-            </h1>
-            <p className="mt-7 text-lg leading-8 text-gray-300 sm:text-xl sm:leading-9">
-              A file tool can be convenient without automatically receiving a copy
-              of your document. The difference comes down to where the work happens:
-              on a remote server or locally inside your browser.
-            </p>
+      <header className="relative overflow-hidden border-b border-[#dbe4de] bg-[#f4f7f2] px-4 py-16 sm:px-6 sm:py-24">
+        <div className="pointer-events-none absolute -left-24 top-0 h-64 w-64 rounded-full bg-emerald-300/20 blur-3xl" />
+        <div className="section-shell relative max-w-5xl">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm font-extrabold text-[#087f5b] hover:gap-3"
+          >
+            <ArrowLeft size={17} aria-hidden="true" />
+            Back to HayaTech notes
+          </Link>
+          <div className="mt-8 flex flex-wrap gap-2">
+            {["Privacy architecture", "Browser technology", "8 min read"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-[#d3dfd7] bg-white/80 px-3 py-1.5 text-xs font-bold text-[#52635c]"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
-        </header>
+          <h1 className="mt-6 max-w-5xl text-4xl font-black leading-[0.98] tracking-[-0.055em] text-[#10211b] sm:text-5xl lg:text-7xl">
+            How Browser-Based File Tools Protect Your Privacy
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-[#52635c] sm:text-xl">
+            “Runs in your browser” can be a meaningful privacy advantage—but only
+            when you understand what is processed locally, what still touches a
+            third party, and how to evaluate the tool before choosing a sensitive
+            file.
+          </p>
+          <div className="mt-7 flex items-center gap-3 text-sm font-semibold text-[#6a7b73]">
+            <span>By Maaz Shaikh</span>
+            <span aria-hidden="true">·</span>
+            <time dateTime="2026-07-21">21 July 2026</time>
+            <span aria-hidden="true">·</span>
+            <span>Updated 26 July 2026</span>
+          </div>
+        </div>
+      </header>
 
-        <div className="mx-auto grid w-full max-w-6xl min-w-0 gap-12 px-4 py-12 sm:px-6 sm:py-14 lg:grid-cols-[minmax(0,1fr)_250px] lg:py-20">
-          <div className="w-full min-w-0 max-w-full space-y-10 break-words text-base leading-8 text-gray-300 sm:text-[1.06rem]">
-            <section>
-              <p>
-                People routinely use online tools to combine images into a PDF,
-                compress a video, resize a photo, or convert one file format into
-                another. Those files may contain invoices, identity documents,
-                family photos, client material, or unpublished work. It is therefore
-                reasonable to ask a simple question before choosing a tool: where
-                does my file go?
+      <article className="bg-white px-4 py-16 sm:px-6 sm:py-24">
+        <div className="section-shell grid max-w-6xl gap-12 lg:grid-cols-[0.34fr_1fr]">
+          <aside className="hidden lg:block">
+            <nav className="sticky top-28 rounded-2xl border border-[#dbe4de] bg-[#f8faf7] p-5">
+              <p className="text-xs font-black uppercase tracking-[0.15em] text-[#087f5b]">
+                In this guide
               </p>
-              <p className="mt-5">
-                Traditional web applications often upload a file to a company&apos;s
-                server, process it there, and return the result. A browser-based file
-                tool can use a different model. Modern web technologies allow many
-                operations to run on the visitor&apos;s own device. The original file is
-                selected through the browser, processed in local memory, and the
-                finished output is downloaded without the application intentionally
-                transferring that file to its server.
-              </p>
+              <ol className="mt-4 space-y-3 text-sm font-semibold text-[#607169]">
+                <li><a href="#where-files-go" className="hover:text-[#087f5b]">1. Where files go</a></li>
+                <li><a href="#local-processing" className="hover:text-[#087f5b]">2. Local processing</a></li>
+                <li><a href="#server-processing" className="hover:text-[#087f5b]">3. Server processing</a></li>
+                <li><a href="#limits" className="hover:text-[#087f5b]">4. Privacy limits</a></li>
+                <li><a href="#checklist" className="hover:text-[#087f5b]">5. Evaluation checklist</a></li>
+                <li><a href="#hayatools" className="hover:text-[#087f5b]">6. HayaTools approach</a></li>
+              </ol>
+            </nav>
+          </aside>
+
+          <div className="min-w-0 max-w-3xl">
+            <p className="text-xl font-semibold leading-9 text-[#33473f]">
+              A file tool may look simple: choose a document, press a button, and
+              download the result. Behind that interface, however, there are two
+              very different ways the task can happen. The file may be processed
+              on your device, or it may be uploaded to someone else&apos;s server.
+              That architectural choice changes the privacy questions you should ask.
+            </p>
+
+            <section id="where-files-go" className="mt-12 scroll-mt-28">
+              <p className="eyebrow">The first question</p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                Where does the file go after you select it?
+              </h2>
+              <div className="mt-5 space-y-5 leading-8 text-[#52635c]">
+                <p>
+                  A file picker gives a webpage temporary access to the file you
+                  choose. What happens next depends on the tool&apos;s code. One tool
+                  may read the file directly in browser memory. Another may start an
+                  upload immediately. The interface can look almost identical in both
+                  cases.
+                </p>
+                <p>
+                  This is why a padlock in the address bar is not the full answer.
+                  HTTPS protects data while it travels between your browser and a
+                  server. It does not tell you whether an upload occurs, how long the
+                  file remains stored, who can access it, or which service processes it.
+                </p>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-3xl font-bold">What “processed locally” actually means</h2>
-              <p className="mt-5">
-                A browser is more than a page viewer. JavaScript, WebAssembly, Canvas,
-                and other browser APIs can perform substantial work directly on a
-                laptop or phone. When an application uses this local-processing
-                approach, the browser reads the file only after the user selects it.
-                The conversion or compression code then runs on that device.
-              </p>
-              <p className="mt-5">
-                For example, a privacy-first image-to-PDF tool can decode selected
-                images, arrange them into pages, generate a PDF in memory, and create
-                a local download. A compatible video tool can analyze and re-encode
-                media in the browser. The site may deliver the application code, but
-                the user&apos;s document does not need to travel with the request.
-              </p>
-              <div className="mt-7 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-6">
-                <div className="flex gap-4">
-                  <LockKeyhole className="mt-1 h-7 w-7 shrink-0 text-emerald-400" aria-hidden="true" />
-                  <p className="text-gray-200">
-                    Local processing reduces exposure by removing an unnecessary
-                    upload step. It does not mean every website interaction becomes
-                    anonymous or that ordinary browser security stops mattering.
+            <section id="local-processing" className="mt-14 scroll-mt-28">
+              <div className="rounded-[1.6rem] border border-[#cce5d8] bg-[#effaf4] p-6 sm:p-8">
+                <LockKeyhole size={28} className="text-[#087f5b]" aria-hidden="true" />
+                <h2 className="mt-5 text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                  Local browser processing
+                </h2>
+                <p className="mt-5 leading-8 text-[#52635c]">
+                  In a local-processing model, JavaScript and browser APIs read the
+                  selected file in memory, perform the transformation on the device,
+                  and create a temporary result for download. The original file does
+                  not need to travel to the application&apos;s server.
+                </p>
+                <div className="mt-7 grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
+                  {[
+                    { icon: FileUp, label: "Select", text: "Your local file" },
+                    { icon: HardDrive, label: "Process", text: "Browser memory" },
+                    { icon: FileDown, label: "Download", text: "Local result" },
+                  ].map(({ icon: Icon, label, text }, index) => (
+                    <div key={label} className="contents">
+                      <div className="rounded-xl border border-[#d3e7dc] bg-white p-4 text-center">
+                        <Icon className="mx-auto text-[#087f5b]" size={22} aria-hidden="true" />
+                        <strong className="mt-3 block text-sm text-[#10211b]">{label}</strong>
+                        <span className="mt-1 block text-xs text-[#6a7b73]">{text}</span>
+                      </div>
+                      {index < 2 ? (
+                        <ArrowRight className="mx-auto hidden text-[#8fb8a5] sm:block" size={18} aria-hidden="true" />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-5 leading-8 text-[#52635c]">
+                <p>
+                  Keeping file contents on the device reduces exposure. There is no
+                  application-server copy to retain, leak, misconfigure, or accidentally
+                  include in a backup. It can also make simple tools faster because the
+                  upload and download round trip disappears.
+                </p>
+                <p>
+                  Local processing is particularly well suited to focused tasks such as
+                  image resizing, format conversion, rotation, cropping, and certain PDF
+                  operations. Modern browsers can handle many of these operations using
+                  Canvas, WebAssembly, and client-side libraries.
+                </p>
+              </div>
+            </section>
+
+            <section id="server-processing" className="mt-14 scroll-mt-28">
+              <h2 className="text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                Server processing is not automatically unsafe
+              </h2>
+              <div className="mt-5 space-y-5 leading-8 text-[#52635c]">
+                <p>
+                  Some tasks genuinely need a server. Very large files, specialist
+                  codecs, collaboration, long-running jobs, shared history, and complex
+                  document analysis may exceed what a browser can do reliably. A secure
+                  server architecture can still be appropriate.
+                </p>
+                <p>
+                  The difference is that server processing introduces more questions:
+                  Is the upload encrypted? Where is it stored? How long is it retained?
+                  Is it used for training or analysis? Can staff access it? Is a third
+                  party involved? What happens to temporary files after the result is
+                  created?
+                </p>
+              </div>
+
+              <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-[#dbe4de] bg-[#f8faf7] p-6">
+                  <HardDrive size={23} className="text-[#087f5b]" aria-hidden="true" />
+                  <h3 className="mt-4 text-lg font-black text-[#10211b]">Local model</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#607169]">
+                    Smaller exposure surface for supported transformations; performance
+                    depends on the user&apos;s device and browser.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-[#dbe4de] bg-[#f8faf7] p-6">
+                  <Server size={23} className="text-[#315fc4]" aria-hidden="true" />
+                  <h3 className="mt-4 text-lg font-black text-[#10211b]">Server model</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#607169]">
+                    More processing power and broader capabilities, with additional
+                    storage, retention, access, and vendor questions.
                   </p>
                 </div>
               </div>
             </section>
 
-            <section>
-              <h2 className="text-3xl font-bold">Local processing vs cloud upload</h2>
-              <p className="mt-5">
-                Server processing is not automatically unsafe. Reputable services
-                can encrypt transfers, restrict access, delete uploads quickly, and
-                maintain strong security controls. Cloud processing is also useful
-                when a task needs powerful hardware, long-running jobs, teamwork,
-                or access from several devices.
-              </p>
-              <p className="mt-5">
-                However, every upload creates additional responsibilities. The file
-                travels across a network, reaches infrastructure controlled by
-                another organization, and may enter temporary storage, logs, backups,
-                or processing queues. Users must trust both the service&apos;s stated
-                policy and its implementation. Local processing avoids much of that
-                chain for tasks a browser can handle efficiently.
-              </p>
-              <div className="mt-7 hidden max-w-full overflow-x-auto rounded-2xl border border-gray-800 md:block">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-gray-900 text-gray-200">
-                    <tr><th className="p-4">Question</th><th className="p-4">Local browser processing</th><th className="p-4">Cloud processing</th></tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-800">
-                    <tr><td className="p-4 font-medium text-white">Where is the main task run?</td><td className="p-4">On the user&apos;s device</td><td className="p-4">On a remote server</td></tr>
-                    <tr><td className="p-4 font-medium text-white">Does the file need uploading?</td><td className="p-4">Usually no</td><td className="p-4">Usually yes</td></tr>
-                    <tr><td className="p-4 font-medium text-white">Best suited to</td><td className="p-4">Common conversions and smaller private tasks</td><td className="p-4">Heavy workloads, storage, and collaboration</td></tr>
-                    <tr><td className="p-4 font-medium text-white">Main dependency</td><td className="p-4">The user&apos;s device and browser</td><td className="p-4">Network speed and provider infrastructure</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div className="mt-7 grid gap-3 md:hidden">
-                {[
-                  ["Where is the main task run?", "On the user’s device", "On a remote server"],
-                  ["Does the file need uploading?", "Usually no", "Usually yes"],
-                  ["Best suited to", "Common conversions and smaller private tasks", "Heavy workloads, storage, and collaboration"],
-                  ["Main dependency", "The user’s device and browser", "Network speed and provider infrastructure"],
-                ].map(([question, local, cloud]) => (
-                  <div key={question} className="min-w-0 rounded-2xl border border-gray-800 bg-gray-900/60 p-4 text-sm">
-                    <h3 className="font-semibold text-white">{question}</h3>
-                    <dl className="mt-3 grid gap-3">
-                      <div>
-                        <dt className="text-xs font-semibold uppercase tracking-wide text-emerald-400">Local browser</dt>
-                        <dd className="mt-1 text-gray-300">{local}</dd>
-                      </div>
-                      <div>
-                        <dt className="text-xs font-semibold uppercase tracking-wide text-cyan-400">Cloud</dt>
-                        <dd className="mt-1 text-gray-300">{cloud}</dd>
-                      </div>
-                    </dl>
-                  </div>
-                ))}
+            <section id="limits" className="mt-14 scroll-mt-28">
+              <h2 className="text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                Local processing does not make the entire website invisible
+              </h2>
+              <div className="mt-5 space-y-5 leading-8 text-[#52635c]">
+                <p>
+                  A website can process file contents locally while still collecting
+                  ordinary website information. Hosting providers, analytics services,
+                  error monitoring, and external links may receive metadata such as an
+                  IP address, browser type, page view, or interaction event. That is
+                  different from receiving the contents of the selected file, but it
+                  still deserves a clear privacy explanation.
+                </p>
+                <p>
+                  Browser extensions and compromised devices are also outside a tool&apos;s
+                  control. Local processing reduces one category of risk; it does not
+                  replace device security, careful file selection, or common sense when
+                  handling confidential material.
+                </p>
               </div>
             </section>
 
-            {/* Future ad slot: insert an in-article responsive unit here after approval. */}
-            <div data-future-ad-slot="article-mid-content" className="hidden" />
-
-            <section>
-              <h2 className="text-3xl font-bold">The practical privacy benefits</h2>
-              <div className="mt-6 space-y-5">
-                {[
-                  ["A smaller data footprint", "If a provider never needs the source file, it has less sensitive material to store, secure, or delete."],
-                  ["Fewer transfer risks", "Removing the upload step reduces the number of systems and network stages through which the file passes."],
-                  ["Faster work in many cases", "There is no need to wait for a large upload before processing begins, although performance still depends on the device."],
-                  ["Clearer user control", "The source stays on the device and the user decides where to save the finished result."],
-                ].map(([title, text]) => (
-                  <div key={title} className="flex gap-4">
-                    <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-emerald-400" aria-hidden="true" />
-                    <div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-1 text-gray-400">{text}</p></div>
-                  </div>
-                ))}
+            <section id="checklist" className="mt-14 scroll-mt-28">
+              <div className="rounded-[1.6rem] bg-[#101b2b] p-6 text-white sm:p-8">
+                <ShieldCheck size={28} className="text-emerald-300" aria-hidden="true" />
+                <h2 className="mt-5 text-3xl font-black tracking-[-0.04em]">
+                  A practical checklist before using a file tool
+                </h2>
+                <ul className="mt-7 space-y-4">
+                  {checks.map((check) => (
+                    <li key={check} className="flex items-start gap-3 text-sm leading-6 text-slate-300">
+                      <CheckCircle2
+                        size={19}
+                        className="mt-0.5 shrink-0 text-emerald-300"
+                        aria-hidden="true"
+                      />
+                      {check}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </section>
 
-            <section>
-              <h2 className="text-3xl font-bold">What local processing does not guarantee</h2>
-              <p className="mt-5">
-                “Runs in your browser” should not be treated as a magic security
-                label. A website can still collect normal technical information such
-                as page visits, browser type, approximate location, or advertising
-                signals. Third-party scripts may be present. A malicious or poorly
-                built application could also behave differently from its public
-                claim. The privacy policy and the actual network behaviour both
-                matter.
-              </p>
-              <p className="mt-5">
-                Local tools also leave ordinary copies on the user&apos;s device. The
-                original may remain in a downloads or photos folder, and the output
-                is saved somewhere too. Shared devices, unencrypted storage, unsafe
-                browser extensions, malware, and outdated browsers remain relevant.
-                For highly sensitive material, use a trusted device and consider a
-                purpose-built offline application.
-              </p>
+            <section id="hayatools" className="mt-14 scroll-mt-28">
+              <p className="eyebrow">A working example</p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                How HayaTools approaches supported file tasks
+              </h2>
+              <div className="mt-5 space-y-5 leading-8 text-[#52635c]">
+                <p>
+                  HayaTools was designed around a browser-first model for its
+                  supported image and PDF utilities. File validation and transformation
+                  happen on the device, and the result is returned as a temporary local
+                  download. The product does not require an account for these tasks.
+                </p>
+                <p>
+                  That architecture keeps the interface focused and reduces the need
+                  for a file-storage layer. It also demonstrates an important product
+                  principle: privacy can come from the system design itself, not only
+                  from a promise written after the product is built.
+                </p>
+              </div>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="https://tools.hayatech.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-[#10211b] px-6 py-3.5 font-extrabold text-white hover:bg-[#18332a]"
+                >
+                  Try HayaTools <ArrowRight size={18} aria-hidden="true" />
+                </a>
+                <Link
+                  href="/projects/hayatools"
+                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl border border-[#cbd8d0] px-6 py-3.5 font-extrabold text-[#10211b] hover:border-[#9fbaa9]"
+                >
+                  Read the case study
+                </Link>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-3xl font-bold">How to evaluate an online file tool</h2>
-              <p className="mt-5">Before selecting a private document, check the following:</p>
-              <ul className="mt-5 space-y-3">
-                {[
-                  "Does the site clearly explain whether files are uploaded or processed locally?",
-                  "Does its privacy policy distinguish file contents from analytics or advertising data?",
-                  "Does the tool work after the page loads if the network is disconnected? This can be a useful clue, though not definitive proof.",
-                  "Does the browser show large network transfers after you select a file? Developer tools can help advanced users inspect this.",
-                  "Is the site served over HTTPS and maintained by an identifiable operator?",
-                  "Does it avoid asking for an account or permissions that the task does not require?",
-                ].map((item) => <li key={item} className="flex gap-3"><span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />{item}</li>)}
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-3xl font-bold">How HayaTools approaches file processing</h2>
-              <p className="mt-5">
-                HayaTech built <a href="https://tools.hayatech.dev" className="font-medium text-emerald-400 underline decoration-emerald-400/40 underline-offset-4 hover:text-emerald-300">HayaTools</a> around
-                a browser-first idea: where a supported conversion can reasonably
-                happen on the visitor&apos;s device, the file should not need to be sent
-                to HayaTech for processing. This architecture is especially suitable
-                for focused utilities such as assembling images into a PDF.
-              </p>
-              <p className="mt-5">
-                We still describe service-specific practices separately because file
-                handling is only one part of privacy. Website hosting, analytics,
-                advertising, external links, and browser storage can involve other
-                data. A useful privacy explanation should state those distinctions
-                instead of making an absolute promise such as “we collect nothing.”
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-3xl font-bold">The takeaway</h2>
-              <p className="mt-5">
-                Browser-based processing is a practical example of privacy by
-                architecture. Rather than collecting a file and promising to protect
-                it, a service can sometimes avoid receiving it in the first place.
-                That can make common file tasks faster, simpler, and less exposed.
-              </p>
-              <p className="mt-5">
-                The best choice still depends on the job. Local processing is ideal
-                when the browser can perform the task reliably and the user values
-                direct control. Cloud processing remains useful for workloads that
-                require more power or collaboration. Understanding that difference
-                helps people choose tools based on evidence instead of vague privacy
-                claims.
+            <section className="mt-14 border-t border-[#dbe4de] pt-10">
+              <h2 className="text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                The simplest privacy question is often the best one
+              </h2>
+              <p className="mt-5 leading-8 text-[#52635c]">
+                Ask where the file goes. If the answer is clear, specific, and
+                supported by the way the product works, you can make a more informed
+                choice. If the architecture is vague, avoid using confidential files
+                until you understand the exposure.
               </p>
             </section>
           </div>
-
-          <aside className="hidden lg:block">
-            <div className="sticky top-28 rounded-2xl border border-gray-800 bg-gray-900 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-400">In this guide</p>
-              <ul className="mt-5 space-y-3 text-sm text-gray-400">
-                <li>Local processing explained</li><li>Browser vs cloud</li><li>Privacy benefits</li><li>Important limitations</li><li>Tool checklist</li><li>HayaTools approach</li>
-              </ul>
-              <Link href="/projects/hayatools" className="mt-7 inline-block text-sm font-semibold text-emerald-400 hover:text-emerald-300">Explore HayaTools →</Link>
-            </div>
-          </aside>
         </div>
       </article>
+
+      <ContactBand
+        title="Need a privacy-aware internal tool or automation?"
+        description="HayaTech can map the data flow, define where information should be processed, and build clear guardrails into the system from the beginning."
+      />
     </main>
   );
 }

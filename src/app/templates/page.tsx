@@ -1,239 +1,160 @@
-// src/app/templates/page.tsx
+import type { Metadata } from "next";
+import { ArrowRight, Check, Download, Layers3, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
+import ContactBand from "@/components/ContactBand";
+import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Ready-to-Deploy Automation Systems",
+  description:
+    "Explore practical n8n automation templates for Gmail, WhatsApp reservations, and AI invoice processing.",
+  alternates: { canonical: "/templates" },
+};
+
+const systems = [
+  {
+    title: "Gmail Smart Automation",
+    label: "Inbox operations",
+    image: "/gmail-automation.png",
+    description:
+      "Classify incoming emails with AI, log important messages, save attachments, and prepare the next action.",
+    steps: ["Gmail trigger", "AI classification", "Sheets logging", "Drive storage"],
+    price: "₹799",
+    link: "https://hayatechh.gumroad.com/l/ctryac",
+  },
+  {
+    title: "WhatsApp Reservation Bot",
+    label: "Conversational booking",
+    image: "/whatsapp-bot.png",
+    description:
+      "Handle booking requests, check availability, confirm reservations, and keep the conversation moving.",
+    steps: ["WhatsApp trigger", "AI response", "Calendar check", "Confirmation"],
+    price: "₹3,599",
+    link: "https://hayatechh.gumroad.com/l/knzpdh",
+  },
+  {
+    title: "AI Invoice Processor",
+    label: "Document operations",
+    image: "/invoice-processor.png",
+    description:
+      "Extract invoice data from PDFs, record structured fields, and notify the right person automatically.",
+    steps: ["PDF input", "AI extraction", "Sheets logging", "Team alert"],
+    price: "₹3,599",
+    link: "https://hayatechh.gumroad.com/l/ymqcea",
+  },
+];
+
 export default function TemplatesPage() {
-    return (
-        <main className="min-h-screen bg-gray-950 text-white pt-20 pb-20">
-            <div className="max-w-7xl mx-auto px-6">
+  return (
+    <main>
+      <PageHero
+        eyebrow="Deployable systems"
+        title="Start with a proven workflow. Adapt it to your operation."
+        description="These n8n systems are built for practical use cases. Deploy them yourself, study the architecture, or ask HayaTech to customise the flow around your tools and rules."
+      />
 
-                {/* Hero */}
-                <section className="py-16 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                        Ready-to-Use <span className="text-cyan-500">Automation Templates</span>
-                    </h1>
-
-                    <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-                        Pre-built n8n workflows you can instantly import and use in your business.
-                        Each template is tested, production-ready, and includes lifetime updates.
-                    </p>
-                </section>
-
-
-                {/* Templates Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-
-                    {/* Template 1 */}
-                    <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500 transition-all flex flex-col hover:shadow-xl">
-
-                        <div className="relative h-56 w-full">
-                            <Image
-                                src="/gmail-automation.png"
-                                alt="Gmail Smart Automation Workflow"
-                                fill
-                                className="object-cover"
-                            />
-
-                            <span className="absolute top-4 left-4 bg-cyan-600 text-xs px-3 py-1 rounded-full font-semibold">
-                                Starter Template
-                            </span>
-                        </div>
-
-                        <div className="p-6 flex flex-col flex-grow">
-
-                            <h3 className="text-2xl font-bold text-cyan-400 mb-3">
-                                Gmail Smart Automation
-                            </h3>
-
-                            <p className="text-gray-300 mb-4 flex-grow">
-                                Automatically classify incoming emails using AI, log important
-                                messages into Google Sheets, store attachments in Drive,
-                                and generate quick reply drafts.
-                            </p>
-
-                            <ul className="text-sm text-gray-400 mb-6 space-y-2">
-                                <li>• Gmail trigger with AI-based classification</li>
-                                <li>• Google Sheets and Drive integrations</li>
-                                <li>• Error handling and automation safeguards</li>
-                                <li>• Instant download</li>
-                                <li>• n8n workflow file included</li>
-                                <li>• Setup guide included</li>
-                            </ul>
-
-                            <div className="mt-auto">
-
-                                <p className="text-xl font-bold text-white mb-4">
-                                    ₹799
-                                </p>
-
-                                <a
-                                    href="https://hayatechh.gumroad.com/l/ctryac"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-cyan-600 hover:bg-cyan-500 text-white py-4 rounded-lg font-bold text-center transition-all block w-full"
-                                >
-                                    Get Template
-                                </a>
-
-                                <p className="text-xs text-gray-500 mt-2 text-center">
-                                    Secure checkout via Gumroad
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    {/* Template 2 */}
-                    <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500 transition-all flex flex-col hover:shadow-xl">
-
-                        <div className="relative h-56 w-full">
-                            <Image
-                                src="/whatsapp-bot.png"
-                                alt="WhatsApp Reservation Bot"
-                                fill
-                                className="object-cover"
-                            />
-
-                            <span className="absolute top-4 left-4 bg-green-600 text-xs px-3 py-1 rounded-full font-semibold">
-                                🔥 Best Seller
-                            </span>
-                        </div>
-
-                        <div className="p-6 flex flex-col flex-grow">
-
-                            <h3 className="text-2xl font-bold text-cyan-400 mb-3">
-                                WhatsApp Reservation Bot
-                            </h3>
-
-                            <p className="text-gray-300 mb-4 flex-grow">
-                                Automatically handle booking requests, check calendar
-                                availability, and confirm reservations via WhatsApp.
-                                Perfect for restaurants and service businesses.
-                            </p>
-
-                            <ul className="text-sm text-gray-400 mb-6 space-y-2">
-                                <li>• WhatsApp message trigger with AI handling</li>
-                                <li>• Calendar availability check</li>
-                                <li>• Automatic confirmation messages</li>
-                                <li>• Instant download</li>
-                                <li>• n8n workflow file included</li>
-                                <li>• Setup guide included</li>
-                            </ul>
-
-                            <div className="mt-auto">
-
-                                <p className="text-xl font-bold text-white mb-4">
-                                    ₹3599
-                                </p>
-
-                                <a
-                                    href="https://hayatechh.gumroad.com/l/knzpdh"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-cyan-600 hover:bg-cyan-500 text-white py-4 rounded-lg font-bold text-center transition-all block w-full"
-                                >
-                                    Get Template
-                                </a>
-
-                                <p className="text-xs text-gray-500 mt-2 text-center">
-                                    Secure checkout via Gumroad
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    {/* Template 3 */}
-                    <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500 transition-all flex flex-col hover:shadow-xl">
-
-                        <div className="relative h-56 w-full">
-                            <Image
-                                src="/invoice-processor.png"
-                                alt="AI Invoice Processor Workflow"
-                                fill
-                                className="object-cover"
-                            />
-
-                            <span className="absolute top-4 left-4 bg-purple-600 text-xs px-3 py-1 rounded-full font-semibold">
-                                ⚡ Saves Hours
-                            </span>
-                        </div>
-
-                        <div className="p-6 flex flex-col flex-grow">
-
-                            <h3 className="text-2xl font-bold text-cyan-400 mb-3">
-                                AI Invoice Processor
-                            </h3>
-
-                            <p className="text-gray-300 mb-4 flex-grow">
-                                Upload invoice PDFs, extract structured data using AI,
-                                log the information into Google Sheets, and automatically
-                                notify your team.
-                            </p>
-
-                            <ul className="text-sm text-gray-400 mb-6 space-y-2">
-                                <li>• PDF upload with AI data extraction</li>
-                                <li>• Google Sheets logging</li>
-                                <li>• Automated notification system</li>
-                                <li>• Instant download</li>
-                                <li>• n8n workflow file included</li>
-                                <li>• Setup guide included</li>
-                            </ul>
-
-                            <div className="mt-auto">
-
-                                <p className="text-xl font-bold text-white mb-4">
-                                    ₹3599
-                                </p>
-
-                                <a
-                                    href="https://hayatechh.gumroad.com/l/ymqcea"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-cyan-600 hover:bg-cyan-500 text-white py-4 rounded-lg font-bold text-center transition-all block w-full"
-                                >
-                                    Get Template
-                                </a>
-
-                                <p className="text-xs text-gray-500 mt-2 text-center">
-                                    Secure checkout via Gumroad
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
+      <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+        <div className="section-shell grid gap-6 lg:grid-cols-3">
+          {systems.map((system) => (
+            <article
+              key={system.title}
+              className="group flex overflow-hidden rounded-[1.7rem] border border-[#dbe4de] bg-[#f8faf7] shadow-sm transition-all hover:-translate-y-1.5 hover:bg-white hover:shadow-2xl hover:shadow-emerald-950/10"
+            >
+              <div className="flex w-full flex-col">
+                <div className="relative aspect-[16/9] overflow-hidden bg-[#101b2b]">
+                  <Image
+                    src={system.image}
+                    alt={`${system.title} automation workflow`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full border border-white/10 bg-[#101b2b]/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-emerald-200 backdrop-blur">
+                    {system.label}
+                  </span>
                 </div>
 
+                <div className="flex flex-1 flex-col p-6">
+                  <h2 className="text-2xl font-black tracking-[-0.035em] text-[#10211b]">
+                    {system.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-[#607169]">
+                    {system.description}
+                  </p>
+                  <ul className="mt-6 grid gap-2">
+                    {system.steps.map((step) => (
+                      <li
+                        key={step}
+                        className="flex items-center gap-2.5 text-sm font-semibold text-[#42564d]"
+                      >
+                        <span className="grid h-5 w-5 place-items-center rounded-full bg-[#dff8ec] text-[#087f5b]">
+                          <Check size={12} strokeWidth={3} aria-hidden="true" />
+                        </span>
+                        {step}
+                      </li>
+                    ))}
+                  </ul>
 
-                {/* CTA */}
-                <div className="text-center mt-20">
-
-                    <h2 className="text-3xl font-bold mb-4">
-                        Need a Custom Automation System?
-                    </h2>
-
-                    <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-                        I build custom AI automation systems for businesses —
-                        including WhatsApp bots, AI agents, CRM integrations,
-                        and advanced n8n workflows.
-                    </p>
-
+                  <div className="mt-auto flex items-end justify-between gap-5 border-t border-[#dbe4de] pt-6">
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#788981]">
+                        Template price
+                      </p>
+                      <p className="mt-1 text-2xl font-black text-[#10211b]">
+                        {system.price}
+                      </p>
+                    </div>
                     <a
-                        href="https://wa.me/918828278210"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-green-600 hover:bg-green-500 text-white px-10 py-5 rounded-xl font-bold text-lg shadow-lg transition-all hover:scale-105 inline-block w-full md:w-auto"
+                      href={system.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl bg-[#10211b] px-5 py-3 font-extrabold text-white hover:bg-[#18332a]"
                     >
-                        Book a Free Automation Consultation
+                      Get system <Download size={17} aria-hidden="true" />
                     </a>
-
+                  </div>
                 </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
+      <section className="bg-[#f4f7f2] px-4 py-20 sm:px-6 sm:py-24">
+        <div className="section-shell">
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                icon: Layers3,
+                title: "Understand the architecture",
+                text: "Each system represents a complete trigger-to-outcome workflow, not an isolated AI prompt.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Adapt the guardrails",
+                text: "Change approvals, validation rules, destinations, and fallbacks to match your process.",
+              },
+              {
+                icon: ArrowRight,
+                title: "Extend when needed",
+                text: "Connect more channels, databases, APIs, or human steps as the workflow grows.",
+              },
+            ].map(({ icon: Icon, title, text }) => (
+              <div key={title} className="rounded-2xl border border-[#dbe4de] bg-white p-6">
+                <Icon size={22} className="text-[#087f5b]" aria-hidden="true" />
+                <h2 className="mt-4 text-lg font-black text-[#10211b]">{title}</h2>
+                <p className="mt-2 text-sm leading-6 text-[#607169]">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            </div>
-        </main>
-    );
+      <ContactBand
+        title="Need the workflow built around your exact business?"
+        description="Use a template as the starting point or skip templates entirely. I can map, build, and integrate a custom system around your tools and decision rules."
+      />
+    </main>
+  );
 }

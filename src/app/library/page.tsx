@@ -1,167 +1,120 @@
-// src/app/library/page.tsx
+import type { Metadata } from "next";
+import { ArrowUpRight, BookOpen, Bot, FileSearch, Mail, MessageCircle } from "lucide-react";
+
+import ContactBand from "@/components/ContactBand";
+import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Automation Resource Library",
+  description:
+    "Practical guides and references for n8n workflows, AI agents, inbox automation, document processing, and WhatsApp systems.",
+  alternates: { canonical: "/library" },
+};
+
+const resources = [
+  {
+    icon: MessageCircle,
+    title: "Build a WhatsApp Reservation Bot with n8n",
+    description:
+      "A practical workflow for receiving requests, checking calendar availability, and sending booking confirmations.",
+    meta: "n8n workflow guide",
+    link: "https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/",
+  },
+  {
+    icon: Mail,
+    title: "Classify Gmail Emails Using AI",
+    description:
+      "Use an email trigger, AI classification, labels, and connected tools to organise an inbox automatically.",
+    meta: "AI inbox automation",
+    link: "https://n8n.io/workflows/3772-automatically-classify-and-label-gmail-emails-with-google-gemini-ai/",
+  },
+  {
+    icon: Bot,
+    title: "Build an AI Agent with Memory",
+    description:
+      "Learn how memory and tools can help an agent maintain context and perform actions across a workflow.",
+    meta: "AI agent architecture",
+    link: "https://n8n.io/workflows/6270-build-your-first-ai-agent/",
+  },
+  {
+    icon: FileSearch,
+    title: "Extract Invoice Data from PDFs",
+    description:
+      "Turn invoice documents into structured records, spreadsheets, and notifications with an automated pipeline.",
+    meta: "Document intelligence",
+    link: "https://n8n.io/workflows/4763-extract-invoice-data-from-pdfs-with-ai-google-sheets-email-alerts/",
+  },
+];
 
 export default function LibraryPage() {
+  return (
+    <main>
+      <PageHero
+        eyebrow="Automation library"
+        title="Learn the systems behind the buzzwords."
+        description="A curated starting point for understanding how useful automation is structured—from triggers and AI decisions to actions, records, and human fallbacks."
+      />
 
-    const resources = [
-        {
-            title: "How to Build a WhatsApp Reservation Bot with n8n",
-            description:
-                "A step-by-step workflow showing how to receive WhatsApp messages, check calendar availability, and automatically confirm bookings. Ideal for restaurants and service businesses.",
-            readTime: "8 min",
-            category: "Automation Guide",
-            link: "https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/",
-        },
-        {
-            title: "Automatically Classify Gmail Emails Using AI",
-            description:
-                "Use Gmail triggers, AI parsing, and Google Sheets logging to automatically organize important emails and reduce inbox clutter.",
-            readTime: "6 min",
-            category: "AI Automation",
-            link: "https://n8n.io/workflows/3772-automatically-classify-and-label-gmail-emails-with-google-gemini-ai/",
-        },
-        {
-            title: "Building a Smart AI Agent with Memory in n8n",
-            description:
-                "Learn how to use vector databases and memory nodes to create AI agents that remember previous conversations and respond more intelligently.",
-            readTime: "10 min",
-            category: "AI Agents",
-            link: "https://n8n.io/workflows/6270-build-your-first-ai-agent/",
-        },
-        {
-            title: "Extract Invoice Data from PDFs Using Automation",
-            description:
-                "Upload invoice PDFs, extract structured data using AI, log it into spreadsheets, and notify your team automatically.",
-            readTime: "7 min",
-            category: "Business Automation",
-            link: "https://n8n.io/workflows/4763-extract-invoice-data-from-pdfs-with-ai-google-sheets-email-alerts/",
-        },
-        {
-            title: "Common n8n Errors and How to Fix Them",
-            description:
-                "Learn how to solve common workflow issues such as webhook timeouts, missing nodes, and API rate limits.",
-            readTime: "5 min",
-            category: "Troubleshooting",
-            link: "https://www.reddit.com/r/n8n/comments/1lprpoe/common_n8n_mistakes_i_see_beginners_make_and_how/",
-        },
-    ];
+      <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+        <div className="section-shell grid gap-5 md:grid-cols-2">
+          {resources.map(({ icon: Icon, title, description, meta, link }, index) => (
+            <article
+              key={title}
+              className="group flex flex-col rounded-[1.5rem] border border-[#dbe4de] bg-[#f8faf7] p-6 transition-all hover:-translate-y-1 hover:bg-white hover:shadow-xl hover:shadow-emerald-950/5 sm:p-8"
+            >
+              <div className="flex items-start justify-between gap-5">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#e2f7ed] text-[#087f5b]">
+                  <Icon size={22} aria-hidden="true" />
+                </span>
+                <span className="font-mono text-xs font-bold text-[#9aaba2]">
+                  0{index + 1}
+                </span>
+              </div>
+              <p className="mt-6 text-[10px] font-black uppercase tracking-[0.15em] text-[#0b9d72]">
+                {meta}
+              </p>
+              <h2 className="mt-2 text-2xl font-black tracking-[-0.035em] text-[#10211b]">
+                {title}
+              </h2>
+              <p className="mt-3 flex-1 leading-7 text-[#607169]">{description}</p>
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2 font-extrabold text-[#087f5b] group-hover:gap-3"
+              >
+                Open guide <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
 
+      <section className="bg-[#101b2b] px-4 py-20 text-white sm:px-6 sm:py-24">
+        <div className="section-shell grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="max-w-3xl">
+            <BookOpen size={28} className="text-emerald-300" aria-hidden="true" />
+            <h2 className="mt-5 text-3xl font-black tracking-[-0.04em] sm:text-4xl">
+              Learn enough to ask better questions. Then build what matters.
+            </h2>
+            <p className="mt-4 leading-7 text-slate-300">
+              The library explains patterns. Your business still needs a system
+              designed around its own data, tools, risks, and decisions.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/918828278210?text=Hi%20Maaz,%20I%20want%20help%20designing%20an%20automation%20system."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-emerald-300 px-6 py-3.5 font-extrabold text-[#10211b] hover:bg-emerald-200"
+          >
+            Ask about your use case
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+        </div>
+      </section>
 
-    return (
-        <main className="min-h-screen bg-gray-950 text-white pt-20 pb-20">
-
-            <div className="max-w-6xl mx-auto px-6">
-
-                {/* Hero */}
-
-                <section className="py-16 text-center">
-
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                        Free <span className="text-cyan-500">Automation Library</span>
-                    </h1>
-
-                    <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-                        Practical guides, automation workflows, and AI system ideas
-                        used in real businesses. Learn how to automate repetitive work
-                        using modern tools like n8n, AI agents, and workflow systems.
-                    </p>
-
-                    <p className="text-sm text-gray-500 mt-4">
-                        Learn → Build → Automate
-                    </p>
-
-                </section>
-
-
-
-                {/* Resources */}
-
-                <div className="grid md:grid-cols-2 gap-8">
-
-                    {resources.map((item, index) => (
-
-                        <div
-                            key={index}
-                            className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-cyan-500 hover:shadow-xl transition-all flex flex-col"
-                        >
-
-                            {/* Category */}
-
-                            <span className="text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full w-fit mb-3">
-                                {item.category}
-                            </span>
-
-
-                            {/* Title */}
-
-                            <h3 className="text-xl font-bold text-cyan-400 mb-3">
-                                {item.title}
-                            </h3>
-
-
-                            {/* Description */}
-
-                            <p className="text-gray-300 mb-6 flex-grow">
-                                {item.description}
-                            </p>
-
-
-                            {/* Footer */}
-
-                            <div className="flex justify-between items-center text-sm text-gray-400">
-
-                                <span>{item.readTime} read</span>
-
-                                <a
-                                    href={item.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
-                                >
-                                    Read Article →
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    ))}
-
-                </div>
-
-
-
-                {/* CTA */}
-
-                <div className="text-center mt-20">
-
-                    <h2 className="text-3xl font-bold mb-4">
-                        Want Automation Like This For Your Business?
-                    </h2>
-
-                    <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-                        I design custom AI automation systems for businesses —
-                        including WhatsApp bots, AI agents, CRM integrations,
-                        and advanced n8n workflows.
-                    </p>
-
-                    <a
-                        href="https://wa.me/918828278210"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-green-600 hover:bg-green-500 text-white px-10 py-5 rounded-xl font-bold text-lg shadow-lg transition-all hover:scale-105 inline-block w-full md:w-auto"
-                    >
-                        Book a Free Automation Consultation
-                    </a>
-
-                    <p className="text-sm text-gray-500 mt-4">
-                        No sales pressure. Just discuss your automation idea.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </main>
-    );
+      <ContactBand />
+    </main>
+  );
 }

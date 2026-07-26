@@ -1,36 +1,23 @@
-export default function sitemap() {
-    return [
-        {
-            url: "https://hayatech.dev",
-            lastModified: new Date(),
-        },
-        {
-            url: "https://hayatech.dev/services",
-            lastModified: new Date(),
-        },
-        {
-            url: "https://hayatech.dev/templates",
-            lastModified: new Date(),
-        },
-        {
-            url: "https://hayatech.dev/library",
-            lastModified: new Date(),
-        },
-        {
-            url: "https://hayatech.dev/projects/hayatools",
-            lastModified: new Date(),
-        },
-        {
-            url: "https://hayatech.dev/blog",
-            lastModified: new Date("2026-07-21"),
-        },
-        {
-            url: "https://hayatech.dev/blog/how-browser-based-file-tools-protect-your-privacy",
-            lastModified: new Date("2026-07-21"),
-        },
-        {
-            url: "https://hayatech.dev/privacy",
-            lastModified: new Date(),
-        },
-    ];
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const routes = [
+    "",
+    "/services",
+    "/templates",
+    "/library",
+    "/projects/hayatools",
+    "/blog",
+    "/blog/how-browser-based-file-tools-protect-your-privacy",
+    "/about",
+    "/faqs",
+    "/privacy",
+  ];
+
+  return routes.map((route) => ({
+    url: `https://hayatech.dev${route}`,
+    lastModified: new Date("2026-07-26"),
+    changeFrequency: route === "" ? "weekly" : "monthly",
+    priority: route === "" ? 1 : route === "/services" ? 0.9 : 0.7,
+  }));
 }

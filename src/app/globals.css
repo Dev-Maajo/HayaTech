@@ -1,83 +1,170 @@
 @import "tailwindcss";
 
-/* ============================= */
-/* Global Theme Variables */
-/* ============================= */
-
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-
-  /* Brand Colors */
-  --primary: #06b6d4;
-  /* cyan */
-  --secondary: #10b981;
-  /* emerald */
-  --muted: #9ca3af;
-
-  /* Font System */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --canvas: #f4f7f2;
+  --paper: #ffffff;
+  --ink: #10211b;
+  --ink-soft: #52635c;
+  --line: #dbe4de;
+  --mint: #38d39f;
+  --mint-dark: #087f5b;
+  --blue: #3977f6;
+  --navy: #101b2b;
 }
 
-/* Tailwind Theme Mapping */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-muted: var(--muted);
-
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+* {
+  box-sizing: border-box;
 }
 
-/* ============================= */
-/* Base Styles */
-/* ============================= */
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  background: var(--canvas);
 }
 
-/* ============================= */
-/* Utility Improvements */
-/* ============================= */
-
-/* Better text readability */
-p {
-  color: #d1d5db;
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
-/* Headings slightly brighter */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #ffffff;
-}
-
-/* Links */
+button,
 a {
-  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Button hover improvement */
 button {
-  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.hero-gradient {
-  background: radial-gradient(circle at top, #0f172a, #020617);
+a {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+::selection {
+  background: #a7f3d0;
+  color: #10211b;
+}
+
+.section-shell {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--mint-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 1.7rem;
+  height: 2px;
+  content: "";
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.automation-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(16, 33, 27, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 33, 27, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.flow-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-line::after {
+  position: absolute;
+  inset: 0 auto 0 -30%;
+  width: 30%;
+  content: "";
+  background: linear-gradient(90deg, transparent, #65f3c1, transparent);
+  animation: flow-pulse 2.6s linear infinite;
+}
+
+.float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.shine {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.shine::after {
+  position: absolute;
+  inset: -60% auto -60% -40%;
+  width: 30%;
+  z-index: -1;
+  content: "";
+  transform: rotate(18deg);
+  background: rgba(255, 255, 255, 0.18);
+  transition: left 420ms ease;
+}
+
+.shine:hover::after {
+  left: 120%;
+}
+
+@keyframes flow-pulse {
+  to {
+    left: 110%;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    width: min(100% - 3rem, 76rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,92 +1,331 @@
 import type { Metadata } from "next";
+import {
+  ArrowRight,
+  Check,
+  ExternalLink,
+  FileImage,
+  Gauge,
+  LockKeyhole,
+  Search,
+  Smartphone,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, ExternalLink, FileImage, Gauge, LockKeyhole, Search, Smartphone } from "lucide-react";
+
+import ContactBand from "@/components/ContactBand";
 
 export const metadata: Metadata = {
-  title: "HayaTools Case Study | HayaTech",
-  description: "How HayaTech built and launched nine free, privacy-first browser tools with Next.js, client-side file processing, SEO, analytics, and automated deployment.",
-  alternates: { canonical: "https://hayatech.dev/projects/hayatools" },
+  title: "HayaTools Product Case Study",
+  description:
+    "How HayaTech designed and shipped a privacy-first suite of browser-based image and PDF tools.",
+  alternates: { canonical: "/projects/hayatools" },
   openGraph: {
-    title: "HayaTools — Privacy-First File Tools Case Study",
-    description: "From product idea to a live collection of nine browser-based image and PDF tools.",
-    url: "https://hayatech.dev/projects/hayatools",
+    title: "HayaTools Product Case Study",
+    description:
+      "From product idea to a responsive suite of browser-based file tools.",
+    url: "/projects/hayatools",
     type: "article",
-    images: [{ url: "/hayatools-home-desktop.png", width: 1350, height: 636, alt: "HayaTools homepage" }],
+    images: [
+      {
+        url: "/hayatools-home-desktop.png",
+        width: 1349,
+        height: 636,
+        alt: "HayaTools desktop homepage",
+      },
+    ],
   },
 };
 
-const tools = ["Image to PDF", "Compress Image", "Resize Image", "JPG/PNG to WebP", "Merge PDF", "PNG to JPG", "JPG to PNG", "Crop Image", "Rotate & Flip Image"];
-const stack = ["Next.js 16", "React 19", "TypeScript", "Canvas API", "jsPDF", "pdf-lib", "Vercel", "Search Console"];
+const tools = [
+  "Image to PDF",
+  "Compress Image",
+  "Resize Image",
+  "JPG / PNG to WebP",
+  "Merge PDF",
+  "PNG to JPG",
+  "JPG to PNG",
+  "Crop Image",
+  "Rotate & Flip Image",
+];
+
+const stack = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Canvas API",
+  "jsPDF",
+  "pdf-lib",
+  "Vercel",
+  "Search Console",
+];
 
 export default function HayaToolsCaseStudy() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <section className="relative overflow-hidden border-b border-gray-800">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(6,182,212,0.16),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.13),transparent_35%)]" />
-        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-300 mb-7"><span className="h-2 w-2 rounded-full bg-emerald-400" /> Live product</div>
-          <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 items-center">
-            <div>
-              <p className="text-cyan-400 font-medium mb-4">PRODUCT DESIGN · DEVELOPMENT · DEPLOYMENT</p>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-7">Everyday file tools, <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">without the nonsense.</span></h1>
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-9">HayaTools is a free, privacy-first collection of image and PDF utilities. Supported files are processed locally in the browser—without accounts, watermarks, or application-server uploads.</p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://tools.hayatech.dev" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-500 px-7 py-4 rounded-lg font-semibold">Open live product <ExternalLink size={18} /></a>
-                <Link href="#case-study" className="inline-flex items-center justify-center gap-2 border border-gray-700 hover:border-cyan-500 px-7 py-4 rounded-lg font-semibold text-gray-200">Read the case study <ArrowRight size={18} /></Link>
-              </div>
+    <main>
+      <section className="relative overflow-hidden bg-[#101b2b] px-4 py-16 text-white sm:px-6 sm:py-24">
+        <div className="automation-grid absolute inset-0 opacity-40" />
+        <div className="section-shell relative grid items-center gap-12 lg:grid-cols-[1fr_0.82fr]">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3.5 py-2 text-xs font-black uppercase tracking-[0.13em] text-emerald-200">
+              <span className="h-2 w-2 rounded-full bg-emerald-300" />
+              Live product case study
             </div>
-            <div className="rounded-2xl border border-gray-700 bg-gray-900/70 p-3 shadow-2xl shadow-cyan-950/40">
-              <Image src="/hayatools-home-mobile.png" width={306} height={495} alt="HayaTools responsive mobile homepage" className="rounded-xl mx-auto h-[470px] w-auto" priority />
+            <p className="mt-8 text-xs font-black tracking-[0.17em] text-blue-300">
+              PRODUCT STRATEGY · DEVELOPMENT · DEPLOYMENT
+            </p>
+            <h1 className="mt-4 text-4xl font-black leading-[0.98] tracking-[-0.055em] sm:text-5xl lg:text-7xl">
+              A focused utility product,{" "}
+              <span className="text-emerald-300">shipped end to end.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              HayaTools is a free collection of browser-based image and PDF tools.
+              The project shows HayaTech&apos;s ability to move from product idea to
+              architecture, interface, privacy model, launch, and ongoing operation.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://tools.hayatech.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-emerald-300 px-6 py-3.5 font-extrabold text-[#10211b] hover:bg-emerald-200"
+              >
+                Open HayaTools <ExternalLink size={18} aria-hidden="true" />
+              </a>
+              <Link
+                href="#case-study"
+                className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl border border-white/15 px-6 py-3.5 font-extrabold text-white hover:bg-white/5"
+              >
+                Explore the build <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[460px]">
+            <div className="absolute -inset-5 rounded-[2.2rem] bg-gradient-to-br from-blue-400/20 to-emerald-300/20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.05] p-3 shadow-2xl">
+              <Image
+                src="/hayatools-home-mobile.png"
+                width={321}
+                height={495}
+                alt="HayaTools mobile homepage"
+                className="mx-auto h-auto max-h-[520px] w-auto rounded-[1.4rem]"
+                priority
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <main id="case-study" className="max-w-7xl mx-auto px-6 py-20">
-        <section className="grid md:grid-cols-2 gap-8 mb-24">
-          <article className="rounded-2xl border border-gray-800 bg-gray-900 p-8">
-            <p className="text-sm font-semibold tracking-widest text-rose-400 mb-4">THE PROBLEM</p>
-            <h2 className="text-3xl font-bold mb-5">Basic file tasks often create unnecessary friction.</h2>
-            <p className="text-gray-400 leading-relaxed">Many online utilities require accounts, upload private files to remote servers, add watermarks, or place the final download behind a subscription. The experience can feel disproportionate to the task.</p>
-          </article>
-          <article className="rounded-2xl border border-cyan-900/60 bg-cyan-950/20 p-8">
-            <p className="text-sm font-semibold tracking-widest text-cyan-400 mb-4">THE SOLUTION</p>
-            <h2 className="text-3xl font-bold mb-5">Focused tools with a browser-first privacy model.</h2>
-            <p className="text-gray-300 leading-relaxed">Each HayaTools page solves one task. Files are validated and processed in browser memory, then returned as temporary local downloads. No user database or file-storage layer is required.</p>
-          </article>
+      <div id="case-study">
+        <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+          <div className="section-shell grid gap-5 md:grid-cols-2">
+            <article className="rounded-[1.6rem] border border-[#e2ded9] bg-[#fff8f2] p-7 sm:p-9">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-[#b35c23]">
+                The problem
+              </p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                Basic file tasks often create unnecessary friction.
+              </h2>
+              <p className="mt-5 leading-7 text-[#607169]">
+                Many utility sites require accounts, upload files to remote servers,
+                add watermarks, or interrupt a simple task with unnecessary steps.
+              </p>
+            </article>
+            <article className="rounded-[1.6rem] border border-[#cce5d8] bg-[#eefaf4] p-7 sm:p-9">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-[#087f5b]">
+                The solution
+              </p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                Focused tools with a browser-first privacy model.
+              </h2>
+              <p className="mt-5 leading-7 text-[#52635c]">
+                Each page solves one task. Supported transformations run in browser
+                memory and return a temporary local download without an account flow.
+              </p>
+            </article>
+          </div>
         </section>
 
-        <section className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
-          {[{value:"9",label:"Live tools"},{value:"0",label:"Accounts required"},{value:"0",label:"HayaTools watermarks"},{value:"100%",label:"Browser-first processing"}].map((item)=><div key={item.label} className="rounded-xl border border-gray-800 bg-gray-900 p-6"><strong className="block text-3xl md:text-4xl text-emerald-400 mb-2">{item.value}</strong><span className="text-sm text-gray-400">{item.label}</span></div>)}
+        <section className="bg-[#f4f7f2] px-4 py-20 sm:px-6 sm:py-24">
+          <div className="section-shell">
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+              {[
+                ["9", "Live tools"],
+                ["0", "Accounts required"],
+                ["0", "HayaTools watermarks"],
+                ["Local", "Browser-first processing"],
+              ].map(([value, label]) => (
+                <div key={label} className="rounded-2xl border border-[#dbe4de] bg-white p-5 sm:p-6">
+                  <strong className="block text-2xl font-black text-[#087f5b] sm:text-3xl">
+                    {value}
+                  </strong>
+                  <span className="mt-2 block text-xs font-bold text-[#6a7b73] sm:text-sm">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-16 grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="eyebrow">What shipped</p>
+                <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-[#10211b] sm:text-4xl">
+                  Nine focused tools in one consistent product system.
+                </h2>
+                <p className="mt-5 leading-7 text-[#607169]">
+                  Shared foundations keep metadata, instructions, validation,
+                  responsive behaviour, and the processing experience consistent.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {tools.map((tool) => (
+                  <div
+                    key={tool}
+                    className="flex items-center gap-3 rounded-xl border border-[#dbe4de] bg-white p-4"
+                  >
+                    <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#e5f8ef] text-[#087f5b]">
+                      <Check size={16} strokeWidth={3} aria-hidden="true" />
+                    </span>
+                    <span className="text-sm font-bold text-[#33473f]">{tool}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section className="mb-24">
-          <div className="max-w-3xl mb-10"><p className="text-cyan-400 font-semibold tracking-widest text-sm mb-3">SHIPPED FEATURES</p><h2 className="text-4xl font-bold mb-4">Nine tools in one consistent system</h2><p className="text-gray-400">A shared tool definition layer generates focused pages with their own metadata, instructions, FAQs, upload rules, and processing behavior.</p></div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{tools.map((tool)=><div key={tool} className="flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-900/70 p-5"><span className="grid place-items-center h-9 w-9 rounded-lg bg-emerald-500/10 text-emerald-400"><Check size={18} /></span><span className="font-medium text-gray-200">{tool}</span></div>)}</div>
+        <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+          <div className="section-shell">
+            <div className="overflow-hidden rounded-[2rem] border border-[#dbe4de]">
+              <div className="grid gap-8 bg-[#101b2b] p-7 text-white sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
+                <div>
+                  <p className="eyebrow !text-emerald-300">Privacy architecture</p>
+                  <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] sm:text-4xl">
+                    The supported file stays on the user&apos;s device.
+                  </h2>
+                </div>
+                <p className="leading-7 text-slate-300">
+                  Native browser APIs and client-side libraries perform the
+                  transformations without a HayaTools application-server upload path.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-4">
+                {[
+                  { icon: FileImage, label: "Select", text: "Choose a local file" },
+                  { icon: LockKeyhole, label: "Validate", text: "Check type in browser" },
+                  { icon: Gauge, label: "Process", text: "Transform in memory" },
+                  { icon: ArrowRight, label: "Download", text: "Create the local result" },
+                ].map(({ icon: Icon, label, text }, index) => (
+                  <div
+                    key={label}
+                    className="border-b border-[#dbe4de] p-6 last:border-0 md:border-b-0 md:border-r"
+                  >
+                    <Icon size={22} className="text-[#087f5b]" aria-hidden="true" />
+                    <span className="mt-5 block font-mono text-xs font-bold text-[#9aaba2]">
+                      0{index + 1}
+                    </span>
+                    <h3 className="mt-2 font-black text-[#10211b]">{label}</h3>
+                    <p className="mt-1 text-sm text-[#607169]">{text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-5 lg:grid-cols-[1.25fr_0.75fr]">
+              <div className="overflow-hidden rounded-2xl border border-[#dbe4de] bg-[#eef2ef] p-2">
+                <Image
+                  src="/hayatools-home-desktop.png"
+                  width={1349}
+                  height={636}
+                  alt="HayaTools desktop homepage"
+                  className="h-auto w-full rounded-xl"
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-[#dbe4de] bg-[#eef2ef] p-2">
+                <Image
+                  src="/hayatools-image-to-pdf.png"
+                  width={1093}
+                  height={640}
+                  alt="HayaTools Image to PDF interface"
+                  className="h-full w-full rounded-xl object-cover object-left"
+                />
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section className="mb-24 rounded-3xl border border-gray-800 bg-gray-900 overflow-hidden">
-          <div className="p-8 md:p-12"><p className="text-emerald-400 font-semibold tracking-widest text-sm mb-3">PRIVACY ARCHITECTURE</p><h2 className="text-4xl font-bold mb-5">The file stays on the user&apos;s device.</h2><p className="text-gray-400 max-w-3xl">The workflow intentionally avoids an upload endpoint. Native browser APIs and client-side libraries perform the supported transformations.</p></div>
-          <div className="grid md:grid-cols-4 border-t border-gray-800">{[{icon:FileImage,label:"Select",text:"Choose a local file"},{icon:LockKeyhole,label:"Validate",text:"Check type in browser"},{icon:Gauge,label:"Process",text:"Transform in memory"},{icon:ArrowRight,label:"Download",text:"Create a temporary result"}].map(({icon:Icon,label,text},index)=><div key={label} className="relative p-7 border-b md:border-b-0 md:border-r last:border-0 border-gray-800"><Icon className="text-cyan-400 mb-5" /><span className="text-xs text-gray-600">0{index+1}</span><h3 className="text-xl font-semibold mt-2 mb-2">{label}</h3><p className="text-sm text-gray-400">{text}</p></div>)}</div>
+        <section className="bg-[#f4f7f2] px-4 py-20 sm:px-6 sm:py-24">
+          <div className="section-shell grid gap-10 lg:grid-cols-2">
+            <div>
+              <p className="eyebrow">Technology</p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+                A production-ready web stack.
+              </h2>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {stack.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[#d1ddd5] bg-white px-3.5 py-2 text-xs font-bold text-[#52635c]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="grid gap-3">
+              {[
+                {
+                  icon: Search,
+                  title: "Search foundation",
+                  text: "Route metadata, canonical URLs, structured navigation, sitemap, and Search Console setup.",
+                },
+                {
+                  icon: Gauge,
+                  title: "Quality checks",
+                  text: "Linting, type checks, production builds, responsive testing, and representative processing tests.",
+                },
+                {
+                  icon: Smartphone,
+                  title: "Responsive experience",
+                  text: "The same focused workflow is available across desktop and mobile.",
+                },
+              ].map(({ icon: Icon, title, text }) => (
+                <div key={title} className="flex gap-4 rounded-2xl border border-[#dbe4de] bg-white p-5">
+                  <Icon size={21} className="shrink-0 text-[#087f5b]" aria-hidden="true" />
+                  <div>
+                    <h3 className="font-black text-[#10211b]">{title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-[#607169]">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
-        <section className="grid lg:grid-cols-[1.3fr_0.7fr] gap-6 mb-24">
-          <div className="rounded-2xl border border-gray-800 bg-gray-900 p-3"><Image src="/hayatools-home-desktop.png" width={1350} height={636} alt="HayaTools desktop homepage" className="rounded-xl w-full h-auto" /></div>
-          <div className="rounded-2xl border border-gray-800 bg-gray-900 p-3"><Image src="/hayatools-image-to-pdf.png" width={1093} height={638} alt="HayaTools Image to PDF interface" className="rounded-xl w-full h-full object-cover object-left" /></div>
+        <section className="bg-white px-4 py-20 sm:px-6 sm:py-24">
+          <div className="section-shell rounded-[2rem] bg-[#10211b] px-6 py-12 text-center text-white sm:px-10">
+            <h2 className="text-3xl font-black tracking-[-0.04em] sm:text-5xl">
+              Try the finished product.
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-300">
+              HayaTools is live and free to use across desktop and mobile.
+            </p>
+            <a
+              href="https://tools.hayatech.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-emerald-300 px-6 py-3.5 font-extrabold text-[#10211b] hover:bg-emerald-200"
+            >
+              Open HayaTools <ExternalLink size={18} aria-hidden="true" />
+            </a>
+          </div>
         </section>
 
-        <section className="grid lg:grid-cols-2 gap-12 mb-24">
-          <div><p className="text-cyan-400 font-semibold tracking-widest text-sm mb-3">TECHNOLOGY</p><h2 className="text-4xl font-bold mb-6">Production-ready web stack</h2><div className="flex flex-wrap gap-3">{stack.map((item)=><span key={item} className="rounded-full border border-gray-700 bg-gray-900 px-4 py-2 text-sm text-gray-300">{item}</span>)}</div></div>
-          <div className="grid gap-4">{[{icon:Search,title:"Search foundation",text:"Route metadata, canonical URLs, Open Graph image, robots.txt, XML sitemap, and Search Console submission."},{icon:Gauge,title:"Quality checks",text:"Dependency audit, ESLint, TypeScript, optimized builds, responsive testing, and representative file-processing tests."},{icon:Smartphone,title:"Responsive experience",text:"The same focused workflow is available across desktop and mobile layouts."}].map(({icon:Icon,title,text})=><div key={title} className="flex gap-4 rounded-xl border border-gray-800 p-5"><Icon className="shrink-0 text-emerald-400" /><div><h3 className="font-semibold mb-1">{title}</h3><p className="text-sm text-gray-400">{text}</p></div></div>)}</div>
-        </section>
-
-        <section className="rounded-3xl bg-gradient-to-r from-cyan-600 to-emerald-600 p-10 md:p-14 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-5">Try the finished product</h2>
-          <p className="text-white/80 max-w-2xl mx-auto mb-8">HayaTools is live, free to use, and actively improving based on real usage and feedback.</p>
-          <a href="https://tools.hayatech.dev" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-gray-950 px-8 py-4 font-bold hover:bg-gray-900">Open HayaTools <ExternalLink size={18} /></a>
-        </section>
-      </main>
-    </div>
+        <ContactBand
+          title="Need an internal tool or automation product built end to end?"
+          description="HayaTech can take a clear operational problem from workflow map to working, responsive system."
+        />
+      </div>
+    </main>
   );
 }

@@ -1,125 +1,132 @@
-// src/app/faqs/page.tsx
 "use client";
 
+import { ChevronDown, MessageCircle } from "lucide-react";
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+
+import PageHero from "@/components/PageHero";
 
 const faqs = [
-    {
-        question: "What is n8n and why do you use it?",
-        answer:
-            "n8n is a powerful open-source workflow automation platform similar to Zapier, but more customizable and self-hosted. I use n8n because it allows advanced integrations, AI automation, and production-grade error handling, making it ideal for building reliable business automation systems.",
-    },
-    {
-        question: "How long does it take to build a custom automation?",
-        answer:
-            "Simple automation workflows usually take 2–5 days to build and deploy. More complex systems such as AI agents, voice bots, or multi-channel automation can take 7–14 days depending on the scope. During the free consultation, we define the exact requirements and timeline.",
-    },
-    {
-        question: "How much does automation cost?",
-        answer:
-            "Ready-to-use automation templates typically range between ₹299 and ₹999. Custom automation systems start from around ₹5,000 depending on complexity. Ongoing maintenance and monitoring plans usually range between ₹2,000 and ₹5,000 per month. Final pricing is discussed during the consultation with full transparency.",
-    },
-    {
-        question: "Will I receive support after the system is delivered?",
-        answer:
-            "Yes. Every automation system includes ongoing support. If you ever face an issue or need an update, you can contact me directly and I will assist you. The goal is to ensure your automation continues running smoothly.",
-    },
-    {
-        question: "Are these automation systems ethical and transparent?",
-        answer:
-            "Absolutely. All systems are built with ethical and transparent practices. There are no black-hat techniques, hidden scripts, or misleading tools. Every automation workflow is delivered clearly so you understand how your system works.",
-    },
-    {
-        question: "Do you work with international clients?",
-        answer:
-            "Yes. I work with businesses globally including clients from the UAE, United States, Europe, and the Middle East. Communication and delivery are handled online, making it easy to collaborate regardless of location.",
-    },
-    {
-        question: "What happens during the free consultation?",
-        answer:
-            "During the consultation, we discuss your business workflow, identify repetitive tasks that can be automated, and explore possible automation solutions. I may also share examples of similar systems to help you understand what is possible.",
-    },
-    {
-        question: "What if I still have questions?",
-        answer:
-            "You can send a message directly on WhatsApp and I will personally respond. I'm always happy to discuss your automation ideas and answer any questions.",
-    },
+  {
+    question: "What can HayaTech automate?",
+    answer:
+      "Any structured process is worth exploring: lead handling, email operations, WhatsApp conversations, document processing, ecommerce workflows, CRM updates, scheduling, notifications, reporting, approvals, and custom app-to-app integrations. The first step is mapping the real process and its exceptions.",
+  },
+  {
+    question: "Do I need to know whether I need n8n, an AI agent, or custom code?",
+    answer:
+      "No. Start with the business problem. The solution might use n8n, AI, APIs, a database, custom code, or a simpler rule-based workflow. The architecture should follow the use case—not the other way around.",
+  },
+  {
+    question: "Will an AI agent make important decisions on its own?",
+    answer:
+      "Only within the boundaries we define. Important steps can use validation rules, confidence thresholds, approvals, exception queues, or direct human handoff. Automation should increase control, not remove it.",
+  },
+  {
+    question: "Can you connect tools that do not have a native integration?",
+    answer:
+      "Often, yes. If the platform provides an API, webhook, export, email trigger, or another reliable interface, a custom integration may be possible. I review the available access and limitations before proposing the build.",
+  },
+  {
+    question: "How long does a custom automation take?",
+    answer:
+      "It depends on the number of systems, decision paths, data rules, and testing scenarios. After the workflow-mapping conversation, you receive a clear scope and realistic delivery plan before work begins.",
+  },
+  {
+    question: "How is pricing decided?",
+    answer:
+      "Custom systems are scoped around complexity, integrations, AI usage, testing, deployment, and ongoing support. You receive a transparent project quote after the process is understood. Ready-made systems have fixed prices on the Automation Systems page.",
+  },
+  {
+    question: "What happens if an automation fails?",
+    answer:
+      "Critical workflows can include retries, logs, alerts, validation, and a fallback path. The exact recovery design depends on what is at risk and how quickly your team needs to respond.",
+  },
+  {
+    question: "Will I understand the system after delivery?",
+    answer:
+      "Yes. The goal is a maintainable handover, not a black box. The workflow, important rules, connected services, and operational responsibilities are documented clearly.",
+  },
+  {
+    question: "Can an existing workflow be improved instead of rebuilt?",
+    answer:
+      "Yes. Existing n8n workflows and automation systems can be audited for reliability, cost, speed, error handling, data quality, and maintainability before deciding what should change.",
+  },
+  {
+    question: "How do we start?",
+    answer:
+      "Send a WhatsApp message with the repetitive process, the tools involved, and the outcome you want. A simple voice note or screen recording is enough for the first review.",
+  },
 ];
 
 export default function FAQsPage() {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-    const toggleFAQ = (index: number) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+  return (
+    <main>
+      <PageHero
+        eyebrow="Frequently asked questions"
+        title="Clear answers before we automate anything."
+        description="You do not need to arrive with a technical plan. These answers explain how projects are scoped, built, controlled, and handed over."
+      />
 
-    return (
-        <main className="min-h-screen bg-gray-950 text-white pt-20 pb-20">
-            <div className="max-w-4xl mx-auto px-6">
+      <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
+          <aside className="lg:sticky lg:top-28 lg:self-start">
+            <p className="eyebrow">Still unsure?</p>
+            <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] text-[#10211b]">
+              Ask with a voice note.
+            </h2>
+            <p className="mt-4 leading-7 text-[#607169]">
+              Explain the repetitive task in plain language. I&apos;ll tell you what
+              looks automatable and what information is needed next.
+            </p>
+            <a
+              href="https://wa.me/918828278210?text=Hi%20Maaz,%20I%20have%20a%20question%20about%20automation."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-[#10211b] px-6 py-3.5 font-extrabold text-white hover:bg-[#18332a]"
+            >
+              <MessageCircle size={18} aria-hidden="true" />
+              Ask Maaz directly
+            </a>
+          </aside>
 
-                {/* Hero */}
-                <section className="py-16 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                        Frequently Asked <span className="text-cyan-500">Questions</span>
-                    </h1>
-
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                        Common questions about AI automation systems, workflows, pricing,
-                        and how HayaTech helps businesses automate repetitive work.
-                    </p>
-                </section>
-
-
-                {/* FAQ Accordion */}
-                <div className="space-y-4">
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700"
-                        >
-                            <button
-                                onClick={() => toggleFAQ(index)}
-                                className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-700 transition-colors"
-                            >
-                                <h3 className="text-lg md:text-xl font-semibold text-white">
-                                    {faq.question}
-                                </h3>
-
-                                {openIndex === index ? (
-                                    <ChevronUp size={24} className="text-cyan-400" />
-                                ) : (
-                                    <ChevronDown size={24} className="text-cyan-400" />
-                                )}
-                            </button>
-
-                            {openIndex === index && (
-                                <div className="px-6 pb-6 text-gray-300">
-                                    <p>{faq.answer}</p>
-                                </div>
-                            )}
-                        </div>
-                    ))}
+          <div className="space-y-3">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={faq.question}
+                  className="overflow-hidden rounded-2xl border border-[#dbe4de] bg-[#f8faf7]"
+                >
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                  >
+                    <span className="font-black leading-6 text-[#10211b]">
+                      {faq.question}
+                    </span>
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#e4f7ee] text-[#087f5b]">
+                      <ChevronDown
+                        size={19}
+                        className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </button>
+                  {isOpen ? (
+                    <div className="border-t border-[#dbe4de] px-5 py-5 sm:px-6">
+                      <p className="max-w-3xl leading-7 text-[#607169]">{faq.answer}</p>
+                    </div>
+                  ) : null}
                 </div>
-
-
-                {/* Final CTA */}
-                <div className="text-center mt-16">
-                    <p className="text-xl text-gray-400 mb-6">
-                        Still have questions? Let&apos;s discuss your automation needs.
-                    </p>
-
-                    <a
-                        href="https://wa.me/918828278210"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-green-600 hover:bg-green-500 text-white px-12 py-6 rounded-xl font-bold text-xl shadow-lg transition-all hover:scale-105 inline-block w-full md:w-auto"
-                    >
-                        Start a Free WhatsApp Consultation
-                    </a>
-                </div>
-
-            </div>
-        </main>
-    );
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }
