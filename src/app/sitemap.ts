@@ -6,6 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/templates",
     "/library",
+    "/projects",
+    "/projects/d2c-ops-command-center",
     "/projects/hayatools",
     "/blog",
     "/blog/how-browser-based-file-tools-protect-your-privacy",
@@ -16,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: `https://hayatech.dev${route}`,
-    lastModified: new Date("2026-07-26"),
+    lastModified: new Date("2026-08-15"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route === "/services" ? 0.9 : 0.7,
   }));

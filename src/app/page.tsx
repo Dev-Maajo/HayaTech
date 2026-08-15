@@ -436,6 +436,84 @@ export default function Home() {
 
       <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="section-shell">
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+            <SectionHeading
+              eyebrow="Featured work"
+              title="A live D2C operations concept built to show the full product direction."
+              description="Not a fabricated client result. This is a HayaTech demonstration system using synthetic data to show how ecommerce operations can be unified into one actionable command center."
+            />
+            <div className="flex lg:justify-end">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 font-extrabold text-[#087f5b] hover:gap-3"
+              >
+                View all case studies
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <article className="mt-12 overflow-hidden rounded-[2rem] border border-[#d6e0da] bg-[#f8faf7] shadow-xl shadow-emerald-950/5">
+            <div className="grid lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+              <div className="relative min-h-[280px] overflow-hidden border-b border-[#dbe4de] bg-[#e9eef5] sm:min-h-[380px] lg:min-h-[430px] lg:border-b-0 lg:border-r">
+                <Image
+                  src="/d2c-ops-command-center.png"
+                  alt="D2C Ops Command Center dashboard preview"
+                  fill
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="object-cover object-top"
+                />
+              </div>
+
+              <div className="p-7 sm:p-9 lg:p-10">
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-[#3977f6]">
+                  Concept / demonstration system
+                </p>
+                <h3 className="mt-4 text-3xl font-black tracking-[-0.045em] text-[#10211b]">
+                  D2C Ops Command Center
+                </h3>
+                <p className="mt-4 leading-7 text-[#607169]">
+                  One workspace for revenue health, orders at risk, inventory pressure,
+                  returns, channel mix, smart alerts, and an AI-ready daily management brief.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["Ecommerce", "Operations dashboard", "Smart alerts", "AI-ready"].map(
+                    (item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-[#d1ddd5] bg-white px-3 py-2 text-xs font-bold text-[#52635c]"
+                      >
+                        {item}
+                      </span>
+                    ),
+                  )}
+                </div>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href="/projects/d2c-ops-command-center"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#10211b] px-5 py-3 font-extrabold text-white hover:-translate-y-0.5 hover:bg-[#18332a]"
+                  >
+                    Read case study
+                    <ArrowRight size={17} aria-hidden="true" />
+                  </Link>
+                  <a
+                    href="https://d2c-ops-command-center.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#c8d8cf] bg-white px-5 py-3 font-extrabold text-[#10211b] hover:border-[#9fbaa9]"
+                  >
+                    Open live demo
+                    <ArrowUpRight size={17} aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+        <div className="section-shell">
           <SectionHeading
             eyebrow="How it gets built"
             title="From “this wastes hours” to a system that runs."

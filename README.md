@@ -44,3 +44,13 @@ production build automatically.
 
 Contact URLs and email addresses are currently defined directly in the shared
 navigation, footer, CTA, and page components.
+
+
+## Published case studies
+
+- `/projects` — Work & Case Studies index
+- `/projects/d2c-ops-command-center` — D2C Ops Command Center concept case study
+- `/projects/hayatools` — HayaTools product case study
+
+The D2C case study is explicitly labelled as a HayaTech concept/demonstration
+system and links to the live Vercel demo.

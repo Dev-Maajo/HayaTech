@@ -9,7 +9,7 @@ import BrandLogo from "./BrandLogo";
 const navItems = [
   { name: "Services", href: "/services" },
   { name: "Systems", href: "/templates" },
-  { name: "Work", href: "/projects/hayatools" },
+  { name: "Work", href: "/projects" },
   { name: "Resources", href: "/library" },
   { name: "About", href: "/about" },
 ];
@@ -28,7 +28,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => {
-            const active = pathname === item.href;
+            const active = pathname === item.href || (item.href === "/projects" && pathname.startsWith("/projects/"));
             return (
               <Link
                 key={item.name}
@@ -79,7 +79,7 @@ export default function Navbar() {
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className={`border-b border-[#dbe4de]/70 px-2 py-3.5 font-bold ${
-                  pathname === item.href ? "text-[#087f5b]" : "text-[#10211b]"
+                  (pathname === item.href || (item.href === "/projects" && pathname.startsWith("/projects/"))) ? "text-[#087f5b]" : "text-[#10211b]"
                 }`}
               >
                 {item.name}

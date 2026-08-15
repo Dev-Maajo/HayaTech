@@ -10,8 +10,10 @@ const companyLinks = [
 ];
 
 const resourceLinks = [
-  { name: "Automation Library", href: "/library" },
+  { name: "Work & Case Studies", href: "/projects" },
+  { name: "D2C Ops Case Study", href: "/projects/d2c-ops-command-center" },
   { name: "HayaTools Case Study", href: "/projects/hayatools" },
+  { name: "Automation Library", href: "/library" },
   { name: "Blog", href: "/blog" },
   { name: "Privacy Policy", href: "/privacy" },
 ];
